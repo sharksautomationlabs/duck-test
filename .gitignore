@@ -17,13 +17,14 @@ dist/
 .env.test.local
 .env.production.local
 
-# Large media files
-*.mp4
+# Large media files (excluding specific allowed videos)
 *.avi
 *.mov
 *.wmv
 *.flv
 *.webm
+# Allow specific MP4 files for hero section
+!public/images/ducks.mp4
 
 # Large images (over 10MB)
 hero-background.png
