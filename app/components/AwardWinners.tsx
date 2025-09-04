@@ -18,17 +18,30 @@ const AwardWinners = () => {
       </div>
 
       <div className="relative max-w-screen-2xl mx-auto h-full z-10">
-        {/* Left Column: Title */}
-        <div className="absolute top-1/2 left-24 -translate-y-1/2">
+        {/* Left Column: Title and Sub-text */}
+        <div className="absolute top-1/2 left-24 -translate-y-1/2 space-y-6">
           <h2 className="font-['Lora'] font-semibold text-8xl leading-tight text-gray-800">
             Award
             <br />
             Winners
           </h2>
+          <div className="space-y-4">
+            <p className="font-['Poppins'] text-xl text-gray-600">
+              Recognized for excellence
+              <br />
+              and impact.
+            </p>
+            <Link href="#" className="flex items-center gap-2 group">
+              <span className="font-['Poppins'] font-semibold text-blue-800 group-hover:underline">
+                Read Now
+              </span>
+              <ArrowRight className="w-5 h-5 text-blue-800 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
         </div>
 
-        {/* Center: Award Decoration and Image Cluster */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px]">
+        {/* Right Column: Award Decoration and Image Cluster */}
+        <div className="absolute bottom-0 right-24 w-[700px] h-[500px]">
           {/* Base Image: Podium and Stars */}
           <Image
             src="/images/award-decoration.png"
@@ -56,21 +69,6 @@ const AwardWinners = () => {
               objectFit="contain"
             />
           </div>
-        </div>
-
-        {/* Right Column: Sub-text and Link */}
-        <div className="absolute top-1/2 right-34 -translate-y-1/2 space-y-4">
-          <p className="font-['Poppins'] text-xl text-gray-600">
-            Recognized for excellence
-            <br />
-            and impact.
-          </p>
-          <Link href="#" className="flex items-center gap-2 group">
-            <span className="font-['Poppins'] font-semibold text-blue-800 group-hover:underline">
-              Read Now
-            </span>
-            <ArrowRight className="w-5 h-5 text-blue-800 transition-transform group-hover:translate-x-1" />
-          </Link>
         </div>
       </div>
     </section>

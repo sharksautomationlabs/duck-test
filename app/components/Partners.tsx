@@ -12,7 +12,7 @@ const Partners = () => {
   ];
 
   return (
-    <section className="py-12 bg-white">
+    <section className="py-20 bg-white">
       <div className="max-w-screen-xl mx-auto px-4 flex justify-center items-center gap-x-20 flex-wrap">
         {partners.map((partner, index) => (
           <div key={index}>

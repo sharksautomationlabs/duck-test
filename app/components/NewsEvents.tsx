@@ -4,8 +4,18 @@ import Image from 'next/image';
 
 const NewsEvents = () => {
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-[1920px] mx-auto px-4">
+    <section className="relative py-20 bg-white">
+      {/* Background image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/section-background.png"
+          alt="News Events Background"
+          layout="fill"
+          objectFit="cover"
+        />
+      </div>
+
+      <div className="relative max-w-[1920px] mx-auto px-4 z-10">
         <div className="grid grid-cols-2 gap-16 items-center">
           {/* Content */}
           <div className="space-y-8 pl-[240px]">
