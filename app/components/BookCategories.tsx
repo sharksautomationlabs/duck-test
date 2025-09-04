@@ -8,7 +8,7 @@ const BookCategories = () => {
     { name: "Science Fiction\n& Fantasy", image: "/images/category-scifi.png", staggered: true },
     { name: "Mystery &\nThriller", image: "/images/category-mystery.png", staggered: false },
     { name: "Non-Fiction", image: "/images/category-nonfiction.png", staggered: true },
-    { name: "Children's\nBooks", image: "/images/category-childrens.png", staggered: false },
+    { name: "Children&apos;s\nBooks", image: "/images/category-childrens.png", staggered: false },
     { name: "Business &\nSelf-Help", image: "/images/category-business.png", staggered: true },
     { name: "Romance", image: "/images/category-romance.png", staggered: false },
   ];

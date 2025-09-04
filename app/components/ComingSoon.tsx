@@ -20,7 +20,7 @@ const ComingSoon = () => {
               <span className="font-bold text-red-500">Soon</span>
             </h2>
             <p className="font-['Poppins'] text-lg text-gray-500">
-              Be the first to meet tomorrow's literary sensations.
+              Be the first to meet tomorrow&apos;s literary sensations.
             </p>
           </div>
 

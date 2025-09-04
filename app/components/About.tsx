@@ -29,7 +29,7 @@ const About = () => {
           {/* Content - Left side */}
           <div className="space-y-8 pl-[120px]">
             <h2 className="font-['Lora'] font-semibold text-[64px] leading-[1.2] tracking-[1.28px] text-[#1A1A1A]">
-              Bringing Authors'
+              Bringing Authors&apos;
               <br />
               Stories to Readers
               <br />
