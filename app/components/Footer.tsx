@@ -18,7 +18,7 @@ const Footer = () => {
     { icon: "/images/x.png", alt: "X" },
   ];
 
-  const navLinks = ["Home", "About US", "Books", "Authors", "Services", "News & Event", "Careers"];
+
 
   return (
     <>
@@ -83,17 +83,7 @@ const Footer = () => {
               </div>
 
               
-              {/* Divider */}
-              <hr className="border-gray-200 my-5 mx-12" />
 
-              {/* Navigation */}
-              <nav className="flex justify-center items-center gap-20 py-2">
-                {navLinks.map((link) => (
-                  <Link key={link} href="#" className="font-['Poppins'] text-base text-gray-700 hover:text-yellow-500 transition-colors">
-                    {link}
-                  </Link>
-                ))}
-              </nav>
             </div>
           </div>
 
