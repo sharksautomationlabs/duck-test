@@ -33,13 +33,6 @@ const Hero = () => {
             into the world. From editing to distribution, we handle the heavy lifting
             so you can focus on writing.
           </p>
-          
-          {/* Button Group */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-start items-start">
-            <button className="bg-yellow-400 text-black font-bold text-base py-1 px-8 rounded-full hover:bg-yellow-500 transition-colors duration-300 shadow-md">
-              Publish My Book
-            </button>
-          </div>
         </div>
 
         {/* Book Showcase Section - Right Side */}
@@ -91,6 +84,13 @@ const Hero = () => {
             />
           </div>
         </div>
+      </div>
+
+      {/* Centered Button */}
+      <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 z-30">
+        <button className="bg-yellow-400 text-black font-semibold text-base py-1 px-8 rounded-full hover:bg-yellow-500 transition-colors duration-300 shadow-lg">
+          Publish My Book
+        </button>
       </div>
     </section>
   );
