@@ -1,34 +1,37 @@
-'use client';
-
+"use client"
 import Image from 'next/image';
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
+import React from 'react';
 
-const Footer = () => {
-  const contactInfo = [
+// Define interfaces for the data structures
+interface ContactInfo {
+  icon: string;
+  text: string;
+}
+
+interface SocialLink {
+  icon: string;
+  alt: string;
+  href: string;
+}
+
+const Footer: React.FC = () => {
+  const contactInfo: ContactInfo[] = [
     { icon: "/images/phone-icon.svg", text: "+1 (800) 987-6543" },
     { icon: "/images/email-icon.svg", text: "Contact@duckbookwriters.com" },
     { icon: "/images/location-icon.svg", text: "2703 Montrose Blvd, Houston,\nTX 77006, United States" },
   ];
 
-  const socialLinks = [
-    { icon: "/images/facebook.png", alt: "Facebook" },
-    { icon: "/images/instagram.svg", alt: "Instagram" },
-    { icon: "/images/linkedin.png", alt: "LinkedIn" },
-    { icon: "/images/x.png", alt: "X" },
+  const socialLinks: SocialLink[] = [
+    { icon: "/images/facebook.png", alt: "Facebook", href: "#" },
+    { icon: "/images/instagram.svg", alt: "Instagram", href: "https://www.instagram.com/duckbookwriters?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" },
+    { icon: "/images/linkedin.png", alt: "LinkedIn", href: "#" },
+    { icon: "/images/x.png", alt: "X", href: "#" },
   ];
-
-
 
   return (
     <>
-      {/* Add this style block for the yellow icon filter */}
-      {/* <style jsx global>{`
-        .icon-yellow {
-          filter: invert(84%) sepia(35%) saturate(1415%) hue-rotate(325deg) brightness(105%) contrast(101%);
-        }
-      `}</style> */}
-      
       <footer className="relative mt-24 mb-4">
         <div className="relative max-w-screen-2xl mx-auto px-4">
           
@@ -68,7 +71,7 @@ const Footer = () => {
                   </Link>
                   <div className="flex items-center gap-4 mt-3">
                     {socialLinks.map((social, index) => (
-                      <Link href="#" key={index}>
+                      <Link href={social.href} key={index}>
                         <Image
                           src={social.icon}
                           alt={social.alt}
@@ -81,8 +84,6 @@ const Footer = () => {
                   </div>
                 </div>
               </div>
-
-              
 
             </div>
           </div>
