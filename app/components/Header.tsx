@@ -1,3 +1,4 @@
+"use client"
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -13,6 +14,13 @@ const navLinks = [
 ];
 
 const Header = () => {
+  const openCalendly = () => {
+    if ((window as any).Calendly) {
+      (window as any).Calendly.initPopupWidget({
+        url: 'https://calendly.com/contact-duckbookwriters/30min',
+      });
+    }
+  };
   return (
     <header className="bg-white shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -64,7 +72,7 @@ const Header = () => {
 
           {/* Column 3: Contact Button */}
           <div className="flex-shrink-0">
-            <button className="bg-[#FFBE02] text-black font-medium text-base py-1 px-8 rounded-full hover:bg-yellow-500 transition-colors duration-300 shadow-md">
+            <button onClick={openCalendly} className="bg-[#FFBE02] text-black font-medium text-base py-1 px-8 rounded-full hover:bg-yellow-500 transition-colors duration-300 shadow-md">
               Contact
             </button>
           </div>

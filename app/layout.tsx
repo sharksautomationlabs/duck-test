@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Poppins, Lora } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -29,10 +30,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />   
+        {/* added for calendly     */}
+      </head>
       <body
         className={`${poppins.variable} ${lora.variable} antialiased`}
       >
         {children}
+        <Script src="https://assets.calendly.com/assets/external/widget.js" strategy="lazyOnload" />   
+        {/* added for calendly */}
       </body>
     </html>
   );

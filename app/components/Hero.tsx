@@ -1,7 +1,17 @@
+"use client";
 import React from 'react';
 import Image from 'next/image';
 
 const Hero = () => {
+
+  const openCalendly = () => {
+    if ((window as any).Calendly) {
+      (window as any).Calendly.initPopupWidget({
+        url: 'https://calendly.com/contact-duckbookwriters/30min',
+      });
+    }
+  };
+
   return (
     <section className="relative w-full min-h-screen flex items-center justify-center text-white overflow-hidden py-0">
       {/* Background Image and Overlay */}
@@ -88,7 +98,10 @@ const Hero = () => {
 
       {/* Centered Button */}
       <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 z-30">
-        <button className="bg-yellow-400 text-black font-semibold text-base py-1 px-8 rounded-full hover:bg-yellow-500 transition-colors duration-300 shadow-lg">
+        <button 
+          onClick={openCalendly}
+          className="bg-yellow-400 text-black font-semibold text-base py-1 px-8 rounded-full hover:bg-yellow-500 transition-colors duration-300 shadow-lg"
+        >
           Publish My Book
         </button>
       </div>
