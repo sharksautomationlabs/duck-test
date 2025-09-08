@@ -12,20 +12,73 @@ const Partners = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-screen-xl mx-auto px-4 flex justify-center items-center gap-x-20 flex-wrap">
-        {partners.map((partner, index) => (
-          <div key={index}>
-            <Image
-              src={partner.logo}
-              alt={`${partner.name} logo`}
-              width={partner.width}
-              height={partner.height}
-              className="object-contain"
-            />
-          </div>
-        ))}
+    <section className="py-20 bg-white overflow-hidden">
+      <div className="marquee-wrapper">
+        <div className="marquee-track">
+          {/* First set of logos */}
+          {partners.map((partner, index) => (
+            <div key={`set1-${index}`} className="marquee-item">
+              <Image
+                src={partner.logo}
+                alt={`${partner.name} logo`}
+                width={partner.width}
+                height={partner.height}
+                className="object-contain"
+              />
+            </div>
+          ))}
+          {/* Second set of logos for seamless loop */}
+          {partners.map((partner, index) => (
+            <div key={`set2-${index}`} className="marquee-item">
+              <Image
+                src={partner.logo}
+                alt={`${partner.name} logo`}
+                width={partner.width}
+                height={partner.height}
+                className="object-contain"
+              />
+            </div>
+          ))}
+        </div>
       </div>
+      
+      <style jsx>{`
+        .marquee-wrapper {
+          width: 100%;
+          overflow: hidden;
+          position: relative;
+        }
+        
+        .marquee-track {
+          display: flex;
+          animation: marquee-scroll 40s linear infinite;
+          width: max-content;
+          will-change: transform;
+        }
+        
+        .marquee-item {
+          flex-shrink: 0;
+          margin: 0 5rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        
+        @keyframes marquee-scroll {
+          0% {
+            transform: translate3d(0, 0, 0);
+          }
+          100% {
+            transform: translate3d(-50%, 0, 0);
+          }
+        }
+        
+        /* Ensure smooth animation on all devices */
+        .marquee-track {
+          backface-visibility: hidden;
+          perspective: 1000px;
+        }
+      `}</style>
     </section>
   );
 };
