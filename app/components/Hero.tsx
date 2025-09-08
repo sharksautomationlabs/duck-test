@@ -199,7 +199,7 @@ const Hero = () => {
       </div>
 
       {/* Main Content Wrapper */}
-      <div className="relative z-20 container mx-auto px-8 flex flex-col lg:flex-row items-center justify-between min-h-screen py-20">
+      <div className="relative z-20 container mx-auto px-4 flex flex-col lg:flex-row items-center justify-between min-h-screen py-20">
         {/* Hero Text Content - Left Side */}
         <motion.div 
           className="flex-1 max-w-2xl lg:max-w-none lg:pr-4 text-left"
