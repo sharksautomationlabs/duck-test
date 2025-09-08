@@ -1,11 +1,27 @@
 'use client';
 
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
 
 const About = () => {
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { 
+    once: false, 
+    amount: 0.3,
+    margin: "-100px 0px -100px 0px"
+  });
+
+  const openCalendly = () => {
+    if ((window as any).Calendly) {
+      (window as any).Calendly.initPopupWidget({
+        url: 'https://calendly.com/contact-duckbookwriters/30min',
+      });
+    }
+  };
+
   return (
-    <section className="relative w-full h-[878px] overflow-hidden bg-white">
+    <section ref={sectionRef} className="relative w-full h-[878px] overflow-hidden bg-white">
       {/* Background container for the right side */}
       <div className="absolute top-0 right-0 h-full w-[65%] rounded-bl-[20px] rounded-tl-[20px] bg-[#efefef] overflow-hidden">
         {/* Blue gradient overlay */}
@@ -49,14 +65,38 @@ const About = () => {
               />
             </motion.div>
             
-            {/* Duck mascot positioned exactly as in Figma */}
+            {/* Duck mascot with scroll-based animation and gentle quiver */}
             <motion.div 
-              className="absolute top-90 left-[480px] w-[236px] h-[300px]"
-              initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
-              whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              whileHover={{ rotate: 5, scale: 1.05 }}
+              className="absolute top-90 w-[236px] h-[300px]"
+              initial={{ opacity: 0, scale: 0.8, rotate: -10, x: 0 }}
+              animate={{ 
+                opacity: 1, 
+                scale: 1, 
+                x: isInView ? 800 : 0,  // Move 800px to the right when in view
+                // Gentle continuous quiver
+                y: [0, -1, 1, -1, 1, 0],
+                rotate: [0, 0.5, -0.5, 0.5, -0.5, 0]
+              }}
+              transition={{ 
+                duration: 1.5, 
+                delay: 0.3,
+                ease: "easeInOut",
+                // Quiver animation settings
+                y: {
+                  duration: 2,
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  ease: "easeInOut"
+                },
+                rotate: {
+                  duration: 2,
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  ease: "easeInOut"
+                }
+              }}
+              // whileHover={{ rotate: 5 }}
+              style={{ left: '480px' }}
             >
               <Image
                 src="/images/duck-mascot-3.png"
@@ -64,6 +104,127 @@ const About = () => {
                 width={236}
                 height={236}
                 className="w-full h-full object-cover transform scale-x-[-1]"
+              />
+              
+              {/* Yellow sparkles coming out of the book - only visible when mascot reaches final position */}
+              <motion.div
+                className="absolute top-[60px] left-[120px] w-[6px] h-[6px] bg-yellow-400 rounded-full opacity-0"
+                animate={{
+                  opacity: isInView ? [0, 1, 0] : 0,
+                  y: isInView ? [0, -80, -100] : 0,
+                  x: isInView ? [0, 8, -5] : 0,
+                  scale: isInView ? [0.5, 1.5, 1, 0] : 0
+                }}
+                transition={{
+                  duration: 2.5,
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  ease: "easeOut",
+                  delay: 1.8  // Wait for mascot to reach final position (0.3s initial + 1.5s movement)
+                }}
+                style={{
+                  boxShadow: isInView ? '0 0 25px #fbbf24, 0 0 50px #fbbf24, 0 0 75px #fbbf24' : 'none'
+                }}
+              />
+              
+              <motion.div
+                className="absolute top-[55px] left-[115px] w-[5px] h-[5px] bg-yellow-300 rounded-full opacity-0"
+                animate={{
+                  opacity: isInView ? [0, 1, 0] : 0,
+                  y: isInView ? [0, -70, -90] : 0,
+                  x: isInView ? [0, -6, 4] : 0,
+                  scale: isInView ? [0.3, 1.3, 0.8, 0] : 0
+                }}
+                transition={{
+                  duration: 2.2,
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  ease: "easeOut",
+                  delay: 2.1  // Wait for mascot + 0.3s stagger
+                }}
+                style={{
+                  boxShadow: isInView ? '0 0 20px #f59e0b, 0 0 40px #f59e0b, 0 0 60px #f59e0b' : 'none'
+                }}
+              />
+              
+              <motion.div
+                className="absolute top-[65px] left-[125px] w-[7px] h-[7px] bg-yellow-500 rounded-full opacity-0"
+                animate={{
+                  opacity: isInView ? [0, 1, 0] : 0,
+                  y: isInView ? [0, -75, -95] : 0,
+                  x: isInView ? [0, 5, -7] : 0,
+                  scale: isInView ? [0.4, 1.4, 0.9, 0] : 0
+                }}
+                transition={{
+                  duration: 2.8,
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  ease: "easeOut",
+                  delay: 2.4  // Wait for mascot + 0.6s stagger
+                }}
+                style={{
+                  boxShadow: isInView ? '0 0 30px #eab308, 0 0 60px #eab308, 0 0 90px #eab308' : 'none'
+                }}
+              />
+              
+              <motion.div
+                className="absolute top-[50px] left-[110px] w-[4px] h-[4px] bg-yellow-400 rounded-full opacity-0"
+                animate={{
+                  opacity: isInView ? [0, 1, 0] : 0,
+                  y: isInView ? [0, -60, -80] : 0,
+                  x: isInView ? [0, -3, 6] : 0,
+                  scale: isInView ? [0.2, 1.2, 0.7, 0] : 0
+                }}
+                transition={{
+                  duration: 2.0,
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  ease: "easeOut",
+                  delay: 2.7  // Wait for mascot + 0.9s stagger
+                }}
+                style={{
+                  boxShadow: isInView ? '0 0 18px #fbbf24, 0 0 36px #fbbf24, 0 0 54px #fbbf24' : 'none'
+                }}
+              />
+              
+              <motion.div
+                className="absolute top-[70px] left-[130px] w-[5px] h-[5px] bg-yellow-300 rounded-full opacity-0"
+                animate={{
+                  opacity: isInView ? [0, 1, 0] : 0,
+                  y: isInView ? [0, -65, -85] : 0,
+                  x: isInView ? [0, 7, -4] : 0,
+                  scale: isInView ? [0.3, 1.3, 0.8, 0] : 0
+                }}
+                transition={{
+                  duration: 2.3,
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  ease: "easeOut",
+                  delay: 3.0  // Wait for mascot + 1.2s stagger
+                }}
+                style={{
+                  boxShadow: isInView ? '0 0 22px #f59e0b, 0 0 44px #f59e0b, 0 0 66px #f59e0b' : 'none'
+                }}
+              />
+              
+              <motion.div
+                className="absolute top-[45px] left-[105px] w-[3px] h-[3px] bg-yellow-500 rounded-full opacity-0"
+                animate={{
+                  opacity: isInView ? [0, 1, 0] : 0,
+                  y: isInView ? [0, -55, -75] : 0,
+                  x: isInView ? [0, -2, 3] : 0,
+                  scale: isInView ? [0.1, 1.1, 0.6, 0] : 0
+                }}
+                transition={{
+                  duration: 1.8,
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  ease: "easeOut",
+                  delay: 3.3  // Wait for mascot + 1.5s stagger
+                }}
+                style={{
+                  boxShadow: isInView ? '0 0 15px #eab308, 0 0 30px #eab308, 0 0 45px #eab308' : 'none'
+                }}
               />
             </motion.div>
           </motion.div>
@@ -129,6 +290,7 @@ const About = () => {
             </motion.div>
             
             <motion.button 
+              onClick={openCalendly}
               className="bg-[#ffbe02] hover:bg-[#e6aa02] text-[#040404] font-['Poppins'] font-semibold px-8 py-3 rounded-[50px] text-[16px] transition-all duration-200 w-[166px] h-[42px] flex items-center justify-center hover-lift smooth-transition"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
