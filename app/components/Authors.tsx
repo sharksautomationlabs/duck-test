@@ -21,7 +21,7 @@ const Authors = () => {
   return (
     <section ref={sectionRef} className="relative py-20">
       {/* Floating Mascots with quiver and sparkles */}
-      <motion.div 
+      {/* <motion.div 
         className="absolute top-8 left-16 z-20 w-32 h-40"
         initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
         animate={{ 
@@ -49,12 +49,12 @@ const Authors = () => {
             ease: "easeInOut"
           }
         }}
-        whileHover={{ scale: 1.05, rotate: 5 }}
-      >
-        <Image src="/images/duck-mascot-3.png" alt="Duck Mascot" width={140} height={172} />
+        whileHover={{ scale: 1.05, rotate: 5 }} */}
+      {/* >
+        <Image src="/images/duck-mascot-3.png" alt="Duck Mascot" width={140} height={172} /> */}
         
         {/* Yellow sparkles coming out of the book - only visible when section is in focus */}
-        <motion.div
+        {/* <motion.div
           className="absolute top-[60px] left-[70px] w-[6px] h-[6px] bg-yellow-400 rounded-full opacity-0"
           animate={{
             opacity: isInView ? [0, 1, 0] : 0,
@@ -173,7 +173,7 @@ const Authors = () => {
             boxShadow: isInView ? '0 0 15px #eab308, 0 0 30px #eab308, 0 0 45px #eab308' : 'none'
           }}
         />
-      </motion.div>
+      </motion.div> */}
       {/* <div className="absolute top-1/2 -translate-y-1/2 right-16 z-20 w-32 h-40">
         <Image src="/images/duck-mascot-3.png" alt="Duck Mascot" width={128} height={160} />
       </div> */}

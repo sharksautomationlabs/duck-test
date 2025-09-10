@@ -66,7 +66,7 @@ const About = () => {
             </motion.div>
             
             {/* Duck mascot with scroll-based animation and gentle quiver */}
-            <motion.div 
+            {/* <motion.div 
               className="absolute top-90 w-[236px] h-[300px]"
               initial={{ opacity: 0, scale: 0.8, rotate: -10, x: 0 }}
               animate={{ 
@@ -105,9 +105,9 @@ const About = () => {
                 height={236}
                 className="w-full h-full object-cover transform scale-x-[-1]"
               />
-              
+               */}
               {/* Yellow sparkles coming out of the book - only visible when mascot reaches final position */}
-              <motion.div
+              {/* <motion.div
                 className="absolute top-[60px] left-[120px] w-[6px] h-[6px] bg-yellow-400 rounded-full opacity-0"
                 animate={{
                   opacity: isInView ? [0, 1, 0] : 0,
@@ -126,8 +126,8 @@ const About = () => {
                   boxShadow: isInView ? '0 0 25px #fbbf24, 0 0 50px #fbbf24, 0 0 75px #fbbf24' : 'none'
                 }}
               />
-              
-              <motion.div
+               */}
+              {/* <motion.div
                 className="absolute top-[55px] left-[115px] w-[5px] h-[5px] bg-yellow-300 rounded-full opacity-0"
                 animate={{
                   opacity: isInView ? [0, 1, 0] : 0,
@@ -226,7 +226,7 @@ const About = () => {
                   boxShadow: isInView ? '0 0 15px #eab308, 0 0 30px #eab308, 0 0 45px #eab308' : 'none'
                 }}
               />
-            </motion.div>
+            </motion.div> */}
           </motion.div>
 
           {/* Content - Right side */}

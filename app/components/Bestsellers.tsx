@@ -49,7 +49,7 @@ const Bestsellers = () => {
       </div>
 
       {/* Duck Mascot with scroll-based animation and sparkles */}
-      <motion.div 
+      {/* <motion.div 
         className="absolute bottom-0 z-20 w-48 h-56"
         initial={{ opacity: 0, x: -50, rotate: -10 }}
         animate={{ 
@@ -87,9 +87,9 @@ const Bestsellers = () => {
           height={224}
           className="transform -scale-x-100"
         />
-        
+         */}
         {/* Yellow sparkles coming out of the book - only visible when mascot reaches final position */}
-        <motion.div
+        {/* <motion.div
           className="absolute top-[60px] left-[120px] w-[6px] h-[6px] bg-yellow-400 rounded-full opacity-0"
           animate={{
             opacity: isInView ? [0, 1, 0] : 0,
@@ -147,8 +147,8 @@ const Bestsellers = () => {
           style={{
             boxShadow: isInView ? '0 0 30px #eab308, 0 0 60px #eab308, 0 0 90px #eab308' : 'none'
           }}
-        />
-        
+        /> */}
+{/*         
         <motion.div
           className="absolute top-[50px] left-[110px] w-[4px] h-[4px] bg-yellow-400 rounded-full opacity-0"
           animate={{
@@ -188,8 +188,8 @@ const Bestsellers = () => {
             boxShadow: isInView ? '0 0 22px #f59e0b, 0 0 44px #f59e0b, 0 0 66px #f59e0b' : 'none'
           }}
         />
-        
-        <motion.div
+         */}
+        {/* <motion.div
           className="absolute top-[45px] left-[105px] w-[3px] h-[3px] bg-yellow-500 rounded-full opacity-0"
           animate={{
             opacity: isInView ? [0, 1, 0] : 0,
@@ -207,8 +207,8 @@ const Bestsellers = () => {
           style={{
             boxShadow: isInView ? '0 0 15px #eab308, 0 0 30px #eab308, 0 0 45px #eab308' : 'none'
           }}
-        />
-      </motion.div>
+        /> */}
+      {/* </motion.div> */}
 
       <div className="relative z-10 max-w-7xl mx-auto px-4">
         {/* Header */}

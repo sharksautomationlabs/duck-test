@@ -70,7 +70,7 @@ const AwardWinners = () => {
           </div>
 
           {/* Overlay Image: Duck Mascot with jumping animation and sparkles */}
-          <motion.div 
+          {/* <motion.div 
             className="absolute bottom-[65px] right-[180px] w-[140px] h-[180px]"
             initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
             animate={{ 
@@ -107,9 +107,9 @@ const AwardWinners = () => {
               layout="fill"
               objectFit="contain"
             />
-            
+             */}
             {/* Yellow sparkles coming out of the book - only visible when mascot reaches final position */}
-            <motion.div
+            {/* <motion.div
               className="absolute top-[60px] left-[70px] w-[6px] h-[6px] bg-yellow-400 rounded-full opacity-0"
               animate={{
                 opacity: isInView ? [0, 1, 0] : 0,
@@ -228,7 +228,7 @@ const AwardWinners = () => {
                 boxShadow: isInView ? '0 0 15px #eab308, 0 0 30px #eab308, 0 0 45px #eab308' : 'none'
               }}
             />
-          </motion.div>
+          </motion.div> */}
         </div>
       </div>
     </section>

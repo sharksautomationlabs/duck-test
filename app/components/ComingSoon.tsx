@@ -123,7 +123,7 @@ const ComingSoon = () => {
               />
             </div>
             {/* Duck Mascot with quiver and sparkles */}
-            <motion.div 
+            {/* <motion.div 
               className="absolute -bottom-5 left-60 z-10 w-32 h-40"
               initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
               animate={{ 
@@ -159,9 +159,9 @@ const ComingSoon = () => {
                 width={128}
                 height={160}
               />
-              
+               */}
               {/* Yellow sparkles coming out of the book - only visible when section is in focus */}
-              <motion.div
+              {/* <motion.div
                 className="absolute top-[60px] left-[70px] w-[6px] h-[6px] bg-yellow-400 rounded-full opacity-0"
                 animate={{
                   opacity: isInView ? [0, 1, 0] : 0,
@@ -260,8 +260,8 @@ const ComingSoon = () => {
                   boxShadow: isInView ? '0 0 22px #f59e0b, 0 0 44px #f59e0b, 0 0 66px #f59e0b' : 'none'
                 }}
               />
-              
-              <motion.div
+               */}
+              {/* <motion.div
                 className="absolute top-[45px] left-[55px] w-[3px] h-[3px] bg-yellow-500 rounded-full opacity-0"
                 animate={{
                   opacity: isInView ? [0, 1, 0] : 0,
@@ -280,7 +280,7 @@ const ComingSoon = () => {
                   boxShadow: isInView ? '0 0 15px #eab308, 0 0 30px #eab308, 0 0 45px #eab308' : 'none'
                 }}
               />
-            </motion.div>
+            </motion.div> */}
           </div>
 
           {/* Right Column: Countdown and Button */}
