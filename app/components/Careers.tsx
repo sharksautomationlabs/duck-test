@@ -140,7 +140,7 @@ const Careers = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.7 }}
               >
-                At Duck Book Writers, we're always looking for talented individuals who share our passion for bringing great stories to life. Whether you're an experienced editor, a creative designer, or a marketing professional, we'd love to hear from you.
+                At Duck Book Writers, we&apos;re always looking for talented individuals who share our passion for bringing great stories to life. Whether you&apos;re an experienced editor, a creative designer, or a marketing professional, we&apos;d love to hear from you.
               </motion.p>
               
               <motion.p 
@@ -363,7 +363,7 @@ const Careers = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3 }}
                 >
-                  Thank you! Your application has been submitted. We'll get back to you soon.
+                  Thank you! Your application has been submitted. We&apos;ll get back to you soon.
                 </motion.div>
               )}
 

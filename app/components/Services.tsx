@@ -1,8 +1,6 @@
 'use client';
 
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
-import Image from 'next/image';
+import { motion } from 'framer-motion';
 import { 
   BookOpen, 
   Palette, 
@@ -10,7 +8,6 @@ import {
   Globe, 
   Headphones, 
   Shield, 
-  CheckCircle, 
   ArrowRight,
   Star,
   Users,
@@ -19,12 +16,6 @@ import {
 } from 'lucide-react';
 
 const Services = () => {
-  const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { 
-    once: false, 
-    amount: 0.3,
-    margin: "-100px 0px -100px 0px"
-  });
 
   const services = [
     {
@@ -635,7 +626,7 @@ const Services = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              Join hundreds of successful authors who trust us with their stories. Let's bring your book to life together.
+              Join hundreds of successful authors who trust us with their stories. Let&apos;s bring your book to life together.
             </motion.p>
             
             <motion.div
