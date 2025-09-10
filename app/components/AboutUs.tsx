@@ -80,14 +80,14 @@ const AboutUs = () => {
               }}
               // whileHover={{ scale: 1.05, rotate: 5 }}
             >
-              <Image
+              {/* <Image
                 src="/images/duck-mascot-2.png"
                 alt="Duck Mascot"
                 width={160}
                 height={160}
                 className="w-full h-full object-contain"
               />
-              
+               */}
               {/* Yellow sparkles coming out of the book - only visible when mascot reaches final position */}
               <motion.div
                 className="absolute top-[60px] left-[80px] w-[6px] h-[6px] bg-yellow-400 rounded-full opacity-0"
