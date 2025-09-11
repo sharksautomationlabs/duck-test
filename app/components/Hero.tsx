@@ -194,12 +194,10 @@ const Hero = () => {
           <source src="/images/ducks.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-        {/* Gradient overlay: yellow (bottom left), white (middle), blue (top right) */}
-        <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/60 via-white/30 to-yellow-400/60 z-10"></div>
       </div>
 
       {/* Main Content Wrapper */}
-      <div className="relative z-20 container mx-auto px-8 flex flex-col lg:flex-row items-center justify-between min-h-screen py-20">
+      <div className="relative z-20 container mx-auto px-8 flex flex-col lg:flex-row items-center justify-between min-h-screen pt-40 pb-20">
         {/* Hero Text Content - Left Side */}
         <motion.div 
           className="flex-1 max-w-2xl lg:max-w-none lg:pr-8 text-left"

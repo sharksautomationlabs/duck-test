@@ -6,6 +6,7 @@ import { useRef } from 'react';
 import Image from 'next/image';
 import emailjs from '@emailjs/browser';
 
+
 const Careers = () => {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { 
@@ -39,17 +40,32 @@ const Careers = () => {
     setSubmitStatus('idle');
 
     try {
-      // EmailJS configuration - you'll get these from EmailJS dashboard
-      const serviceId = 'YOUR_SERVICE_ID'; // Replace with your EmailJS service ID
-      const templateId = 'YOUR_TEMPLATE_ID'; // Replace with your EmailJS template ID
-      const publicKey = 'YOUR_PUBLIC_KEY'; // Replace with your EmailJS public key
+      // EmailJS configuration - get these from your EmailJS dashboard
+      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID';
+      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 'YOUR_TEMPLATE_ID';
+      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY';
+
+      // Debug: Log the configuration (remove this after testing)
+      console.log('EmailJS Config:', {
+        serviceId: serviceId.substring(0, 10) + '...',
+        templateId: templateId.substring(0, 10) + '...',
+        publicKey: publicKey.substring(0, 10) + '...',
+        hasServiceId: !!serviceId && serviceId !== 'YOUR_SERVICE_ID',
+        hasTemplateId: !!templateId && templateId !== 'YOUR_TEMPLATE_ID',
+        hasPublicKey: !!publicKey && publicKey !== 'YOUR_PUBLIC_KEY'
+      });
+
+      // Check if credentials are properly set
+      if (serviceId === 'YOUR_SERVICE_ID' || templateId === 'YOUR_TEMPLATE_ID' || publicKey === 'YOUR_PUBLIC_KEY') {
+        throw new Error('EmailJS credentials not configured. Please check your .env.local file.');
+      }
 
       // Send email using EmailJS
-      await emailjs.send(
+      const result = await emailjs.send(
         serviceId,
         templateId,
         {
-          to_email: 'zaidrehan545@gmail.com',
+          to_email: process.env.NEXT_PUBLIC_CAREER_EMAIL || 'zaidrehan545@gmail.com',
           from_name: formData.name,
           from_email: formData.email,
           contact_number: formData.contact,
@@ -58,6 +74,8 @@ const Careers = () => {
         },
         publicKey
       );
+
+      console.log('Email sent successfully:', result);
 
       setSubmitStatus('success');
       
@@ -75,6 +93,21 @@ const Careers = () => {
 
     } catch (error) {
       console.error('Error sending email:', error);
+      
+      // Handle EmailJS specific errors
+      if (error && typeof error === 'object') {
+        const emailJSError = error as any;
+        console.error('Error details:', {
+          message: emailJSError.message || 'Unknown error',
+          status: emailJSError.status || 'No status',
+          text: emailJSError.text || 'No text'
+        });
+      } else {
+        console.error('Error details:', {
+          message: error instanceof Error ? error.message : 'Unknown error'
+        });
+      }
+      
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
