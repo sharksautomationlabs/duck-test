@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
+import CalendlyWidget from './CalendlyWidget';
 
 const About = () => {
   const sectionRef = useRef(null);
@@ -12,18 +13,11 @@ const About = () => {
     margin: "-100px 0px -100px 0px"
   });
 
-  const openCalendly = () => {
-    if ((window as any).Calendly) {
-      (window as any).Calendly.initPopupWidget({
-        url: 'https://calendly.com/contact-duckbookwriters/30min',
-      });
-    }
-  };
 
   return (
-    <section ref={sectionRef} className="relative w-full h-[878px] overflow-hidden bg-white">
+    <section ref={sectionRef} className="relative w-full min-h-[700px] sm:h-[700px] lg:h-[878px] overflow-hidden bg-white">
       {/* Background container for the right side */}
-      <div className="absolute top-0 right-0 h-full w-[65%] rounded-bl-[20px] rounded-tl-[20px] bg-[#efefef] overflow-hidden">
+      <div className="absolute top-0 right-0 h-full w-full lg:w-[65%] rounded-bl-[20px] rounded-tl-[20px] bg-[#efefef] overflow-hidden">
         {/* Blue gradient overlay */}
         <div 
           className="absolute inset-0 opacity-40"
@@ -42,17 +36,17 @@ const About = () => {
       </div>
 
       <div className="max-w-[1920px] mx-auto px-4 relative z-10 h-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center h-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center h-full py-8 lg:py-0">
           {/* Image - Left side */}
           <motion.div 
-            className="relative"
+            className="relative order-2 lg:order-1"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <motion.div 
-              className="w-[647px] h-[653px] relative"
+              className="w-full max-w-[400px] sm:max-w-[500px] lg:max-w-[647px] h-[350px] sm:h-[400px] lg:h-[653px] relative mx-auto"
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
             >
@@ -61,7 +55,7 @@ const About = () => {
                 alt="About Duck Book Writers"
                 width={647}
                 height={653}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
               />
             </motion.div>
             
@@ -231,14 +225,14 @@ const About = () => {
 
           {/* Content - Right side */}
           <motion.div 
-            className="space-y-8 pr-[120px]"
+            className="space-y-6 lg:space-y-8 px-4 lg:pr-[120px] order-1 lg:order-2"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           >
             <motion.h2 
-              className="font-['Lora'] font-semibold text-[64px] leading-[1.2] tracking-[1.28px] text-[#1A1A1A]"
+              className="font-['Lora'] font-semibold text-[32px] sm:text-[40px] lg:text-[50px] xl:text-[64px] leading-[1.2] tracking-[0.64px] sm:tracking-[0.8px] lg:tracking-[1px] xl:tracking-[1.28px] text-[#1A1A1A] text-center lg:text-left"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -252,14 +246,14 @@ const About = () => {
             </motion.h2>
             
             <motion.div 
-              className="space-y-5 w-[550px]"
+              className="space-y-4 lg:space-y-5 w-full max-w-[550px] mx-auto lg:mx-0"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
               <motion.p 
-                className="font-['Poppins'] font-normal text-[16px] leading-[1.7] text-[#6b6b6b]"
+                className="font-['Poppins'] font-normal text-[14px] sm:text-[15px] lg:text-[16px] leading-[1.6] sm:leading-[1.7] text-[#6b6b6b]"
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -269,7 +263,7 @@ const About = () => {
               </motion.p>
               
               <motion.p 
-                className="font-['Poppins'] font-normal text-[16px] leading-[1.7] text-[#6b6b6b]"
+                className="font-['Poppins'] font-normal text-[14px] sm:text-[15px] lg:text-[16px] leading-[1.6] sm:leading-[1.7] text-[#6b6b6b]"
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -279,7 +273,7 @@ const About = () => {
               </motion.p>
               
               <motion.p 
-                className="font-['Poppins'] font-normal text-[16px] leading-[1.7] text-[#6b6b6b]"
+                className="font-['Poppins'] font-normal text-[14px] sm:text-[15px] lg:text-[16px] leading-[1.6] sm:leading-[1.7] text-[#6b6b6b]"
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -289,18 +283,20 @@ const About = () => {
               </motion.p>
             </motion.div>
             
-            <motion.button 
-              onClick={openCalendly}
-              className="bg-[#ffbe02] hover:bg-[#e6aa02] text-[#040404] font-['Poppins'] font-semibold px-8 py-3 rounded-[50px] text-[16px] transition-all duration-200 w-[166px] h-[42px] flex items-center justify-center hover-lift smooth-transition"
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 1.0 }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              className="mx-auto lg:mx-0"
             >
-              Learn More
-            </motion.button>
+              <CalendlyWidget 
+                url="https://calendly.com/contact-duckbookwriters/30min"
+                text="Learn More"
+                size="md"
+                className="bg-[#ffbe02] hover:bg-[#e6aa02] text-[#040404] font-['Poppins'] font-semibold rounded-[50px] transition-all duration-200 w-[140px] sm:w-[166px] h-[36px] sm:h-[42px] hover-lift smooth-transition"
+              />
+            </motion.div>
           </motion.div>
         </div>
       </div>

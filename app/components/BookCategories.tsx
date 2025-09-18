@@ -27,19 +27,19 @@ const BookCategories = () => {
         }
       `}</style>
 
-      <section className="relative bg-[#F8F9FA] rounded-[40px] my-20 py-16">
+      <section className="relative bg-[#F8F9FA] rounded-[20px] sm:rounded-[30px] lg:rounded-[40px] my-12 sm:my-16 lg:my-20 py-8 sm:py-12 lg:py-16">
         {/* Decorative Duck Icons */}
 
 
         {/* Centered Header Container */}
         <motion.div 
-          className="max-w-7xl mx-auto text-center mb-12 px-4"
+          className="max-w-7xl mx-auto text-center mb-8 sm:mb-10 lg:mb-12 px-4"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="font-['Lora'] font-medium text-5xl text-gray-800">
+          <h2 className="font-['Lora'] font-medium text-3xl sm:text-4xl lg:text-5xl text-gray-800">
             Book Category
           </h2>
         </motion.div>
@@ -47,7 +47,7 @@ const BookCategories = () => {
         {/* Full-Width Scrollable Wrapper with hidden scrollbar */}
         <div className="w-full overflow-x-auto pb-4 hide-scrollbar">
           <motion.div 
-            className="flex items-start gap-6 flex-nowrap w-max mx-auto px-8"
+            className="flex items-start gap-4 sm:gap-6 flex-nowrap w-max mx-auto px-4 sm:px-8"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, amount: 0.2 }}

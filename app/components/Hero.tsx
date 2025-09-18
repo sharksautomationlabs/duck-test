@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import CalendlyWidget from './CalendlyWidget';
 
 // Book data structure
 interface BookCover {
@@ -81,7 +82,7 @@ const BookCarousel = ({ books, animationDuration = 5000 }: { books: BookCover[],
   return (
     <motion.div 
       ref={containerRef}
-      className="flex justify-center lg:justify-end items-end gap-4 sm:gap-8"
+      className="flex justify-center lg:justify-end items-end gap-2 sm:gap-4 lg:gap-8"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
@@ -94,7 +95,7 @@ const BookCarousel = ({ books, animationDuration = 5000 }: { books: BookCover[],
         return (
           <motion.div 
             key={`placeholder-${placeholderIndex}`} 
-            className={`${books[placeholderIndex].containerClassName} bg-white rounded-lg shadow-lg p-2 overflow-hidden`}
+            className={`${books[placeholderIndex].containerClassName} bg-white rounded-lg shadow-lg p-1 sm:p-2 overflow-hidden ${placeholderIndex >= 3 ? 'hidden lg:block' : ''}`}
             custom={-1} // Direction: -1 means moving left
             variants={bookVariants}
             initial="enter"
@@ -135,7 +136,7 @@ const Hero = () => {
       width: 144,
       height: 208,
       className: "w-full h-full object-cover rounded",
-      containerClassName: "w-32 h-48 sm:w-36 sm:h-52"
+      containerClassName: "w-20 h-32 sm:w-28 sm:h-40 lg:w-20 lg:h-32 xl:w-24 xl:h-36"
     },
     {
       src: "/images/book-2.png",
@@ -143,7 +144,7 @@ const Hero = () => {
       width: 160,
       height: 224,
       className: "w-full h-full object-cover rounded",
-      containerClassName: "w-42 h-64"
+      containerClassName: "w-36 h-52 sm:w-40 sm:h-56 lg:w-36 lg:h-48 xl:w-40 xl:h-52"
     },
     {
       src: "/images/book-3.png",
@@ -151,7 +152,7 @@ const Hero = () => {
       width: 192,
       height: 288,
       className: "w-full h-full object-cover rounded",
-      containerClassName: "w-56 h-80"
+      containerClassName: "w-20 h-32 sm:w-28 sm:h-40 lg:w-56 lg:h-72 xl:w-64 xl:h-88"
     },
     {
       src: "/images/book-4.png",
@@ -159,7 +160,7 @@ const Hero = () => {
       width: 160,
       height: 224,
       className: "w-full h-full object-cover rounded",
-      containerClassName: "w-42 h-64"
+      containerClassName: "w-24 h-36 sm:w-32 sm:h-44 lg:w-36 lg:h-48 xl:w-40 xl:h-52"
     },
     {
       src: "/images/book-1.png",
@@ -167,20 +168,13 @@ const Hero = () => {
       width: 144,
       height: 208,
       className: "w-full h-full object-cover rounded",
-      containerClassName: "w-32 h-48 sm:w-36 sm:h-52"
+      containerClassName: "w-20 h-32 sm:w-28 sm:h-40 lg:w-20 lg:h-32 xl:w-24 xl:h-36"
     }
   ];
 
-  const openCalendly = () => {
-    if ((window as any).Calendly) {
-      (window as any).Calendly.initPopupWidget({
-        url: 'https://calendly.com/contact-duckbookwriters/30min',
-      });
-    }
-  };
 
   return (
-    <section className="relative w-full min-h-screen flex items-center justify-center text-white overflow-hidden py-0">
+    <section className="relative w-full min-h-[80vh] lg:min-h-screen flex items-center justify-center text-white overflow-hidden py-0">
       {/* Background Image and Overlay */}
       <div className="absolute inset-0 z-0">
         <video
@@ -197,16 +191,16 @@ const Hero = () => {
       </div>
 
       {/* Main Content Wrapper */}
-      <div className="relative z-20 container mx-auto px-8 flex flex-col lg:flex-row items-center justify-between min-h-screen pt-40 pb-20">
+      <div className="relative z-20 container mx-auto px-4 sm:px-8 flex flex-col lg:flex-row items-center justify-between min-h-[80vh] lg:min-h-screen pt-16 sm:pt-32 lg:pt-40 pb-16 sm:pb-20">
         {/* Hero Text Content - Left Side */}
         <motion.div 
-          className="flex-1 max-w-2xl lg:max-w-none lg:pr-8 text-left"
+          className="flex-1 max-w-2xl lg:max-w-none lg:pr-8 text-center lg:text-left pt-8 sm:pt-0 pb-4 sm:pb-0"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
         >
           <motion.h1 
-            className="font-serif text-4xl md:text-6xl lg:text-7xl font-medium leading-tight tracking-wide mb-6"
+            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium leading-tight tracking-wide mb-4 sm:mb-6"
             initial={{ opacity: 0, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
@@ -214,7 +208,7 @@ const Hero = () => {
             Your Story Deserves to Make a Splash
           </motion.h1>
           <motion.p 
-            className="text-base md:text-lg text-white/90 mb-8"
+            className="text-sm sm:text-base md:text-lg text-white/90 mb-6 sm:mb-8 px-4 sm:px-0"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.9 }}
@@ -226,7 +220,7 @@ const Hero = () => {
         </motion.div>
 
         {/* Book Showcase Section - Right Side */}
-        <div className="flex-1 mt-16 lg:mt-0">
+        <div className="flex-1 mt-8 sm:mt-12 lg:mt-0 w-full lg:w-auto">
           {/* Animated Book Carousel */}
           <BookCarousel books={bookCovers} animationDuration={3000} />
         </div>
@@ -234,19 +228,22 @@ const Hero = () => {
 
       {/* Centered Button */}
       <motion.div 
-        className="absolute bottom-20 left-1/2 transform -translate-x-1/2 z-30"
+        className="absolute bottom-8 sm:bottom-12 lg:bottom-20 left-1/2 transform -translate-x-1/2 z-30"
         initial={{ opacity: 0, y: 30, scale: 0.9 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 0.6, delay: 1.5 }}
       >
-        <motion.button 
-          onClick={openCalendly}
-          className="bg-yellow-400 text-black font-semibold text-base py-1 px-8 rounded-full hover:bg-yellow-500 transition-colors duration-300 shadow-lg hover-lift smooth-transition"
+        <motion.div
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          Publish My Book
-        </motion.button>
+          <CalendlyWidget 
+            url="https://calendly.com/contact-duckbookwriters/30min"
+            text="Publish My Book"
+            size="md"
+            className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold"
+          />
+        </motion.div>
       </motion.div>
     </section>
   );

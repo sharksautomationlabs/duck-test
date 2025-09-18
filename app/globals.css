@@ -32,6 +32,14 @@ body {
   overflow-x: hidden;
 }
 
+html {
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 .font-lora {
   font-family: "Lora", serif;
 }

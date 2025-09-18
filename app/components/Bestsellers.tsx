@@ -1,8 +1,10 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
+import CalendlyWidget from './CalendlyWidget';
 
 const Bestsellers = () => {
   const sectionRef = useRef(null);
@@ -37,7 +39,7 @@ const Bestsellers = () => {
   ];
 
   return (
-    <section ref={sectionRef} className="relative py-20 bg-white">
+    <section ref={sectionRef} className="relative py-12 sm:py-16 lg:py-20 bg-white">
       {/* Background Wavy Lines */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -213,15 +215,15 @@ const Bestsellers = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-4">
         {/* Header */}
         <motion.div 
-          className="flex justify-between items-center mb-24"
+          className="flex flex-col sm:flex-row justify-between items-center mb-12 sm:mb-16 lg:mb-24 gap-4 sm:gap-0"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
         >
-          <div>
+          <div className="text-center sm:text-left">
             <motion.h2 
-              className="font-['Lora'] font-semibold text-5xl text-gray-800 mb-3"
+              className="font-['Lora'] font-semibold text-3xl sm:text-4xl lg:text-5xl text-gray-800 mb-2 sm:mb-3"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -230,7 +232,7 @@ const Bestsellers = () => {
               Bestsellers
             </motion.h2>
             <motion.p 
-              className="font-['Poppins'] text-base text-gray-500"
+              className="font-['Poppins'] text-sm sm:text-base text-gray-500"
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -239,21 +241,23 @@ const Bestsellers = () => {
               Explore books topping charts and winning hearts worldwide.
             </motion.p>
           </div>
-          <motion.button 
-            className="bg-gray-800 hover:bg-black text-white font-['Poppins'] font-semibold px-6 py-1 rounded-full text-base hover-lift smooth-transition"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: 0.4 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            View All
-          </motion.button>
+          <Link href="/books">
+            <motion.button 
+              className="bg-gray-800 hover:bg-black text-white font-['Poppins'] font-semibold px-4 sm:px-6 py-1 rounded-full text-sm sm:text-base hover-lift smooth-transition"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.4 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              View All
+            </motion.button>
+          </Link>
         </motion.div>
         
         <motion.div 
-          className="flex justify-center gap-12"
+          className="flex flex-col lg:flex-row justify-center gap-8 sm:gap-10 lg:gap-12"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, amount: 0.2 }}
@@ -262,7 +266,7 @@ const Bestsellers = () => {
           {books.map((book, index) => (
             <motion.div 
               key={index} 
-              className="relative bg-[#FFFBEB] rounded-2xl p-6 pb-24 w-full max-w-[360px] hover-lift smooth-transition"
+              className="relative bg-[#FFFBEB] rounded-2xl p-4 sm:p-6 pb-20 sm:pb-24 w-full max-w-[360px] hover-lift smooth-transition"
               initial={{ opacity: 0, y: 30, scale: 0.95 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true }}
@@ -271,7 +275,7 @@ const Bestsellers = () => {
             >
               {/* Book Image - Absolutely Positioned */}
               <motion.div 
-                className="absolute left-6 -top-6 w-[150px] h-[210px] rounded-lg overflow-hidden shadow-lg"
+                className="absolute left-4 sm:left-6 -top-4 sm:-top-6 w-[120px] h-[168px] sm:w-[150px] sm:h-[210px] rounded-lg overflow-hidden shadow-lg"
                 initial={{ opacity: 0, y: -20, rotate: -5 }}
                 whileInView={{ opacity: 1, y: 0, rotate: 0 }}
                 viewport={{ once: true }}
@@ -289,8 +293,8 @@ const Bestsellers = () => {
               
               {/* Content Container */}
               <motion.div 
-                className="ml-[170px]" 
-                style={{ minHeight: '150px' }}
+                className="ml-[130px] sm:ml-[170px]" 
+                style={{ minHeight: '120px' }}
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -298,7 +302,7 @@ const Bestsellers = () => {
               >
                 {/* Title */}
                 <motion.h3 
-                  className="font-['Lora'] font-semibold text-xl leading-tight text-gray-800 whitespace-pre-line mb-4"
+                  className="font-['Lora'] font-semibold text-lg sm:text-xl leading-tight text-gray-800 whitespace-pre-line mb-3 sm:mb-4"
                   initial={{ opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -309,7 +313,7 @@ const Bestsellers = () => {
                 
                 {/* Price */}
                 <motion.span 
-                  className="font-['Lora'] font-bold text-4xl text-gray-800"
+                  className="font-['Lora'] font-bold text-3xl sm:text-4xl text-gray-800"
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
@@ -321,17 +325,20 @@ const Bestsellers = () => {
               </motion.div>
               
               {/* Buy Now button - Repositioned and elongated */}
-              <motion.button 
-                className="absolute bottom-6 left-6 right-6 bg-[#ffbe02] hover:bg-yellow-500 text-black font-['Poppins'] font-semibold py-1 rounded-2xl text-base shadow-lg shadow-yellow-300/50 hover-lift smooth-transition"
+              <motion.div 
+                className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6"
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: 0.7 + index * 0.2 }}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
               >
-                Buy Now
-              </motion.button>
+                <CalendlyWidget 
+                  url="https://calendly.com/contact-duckbookwriters/30min"
+                  text="Buy Now"
+                  size="sm"
+                  className="w-full bg-[#ffbe02] hover:bg-yellow-500 text-black font-['Poppins'] font-semibold py-1 rounded-2xl text-sm sm:text-base shadow-lg shadow-yellow-300/50 hover-lift smooth-transition"
+                />
+              </motion.div>
             </motion.div>
           ))}
         </motion.div>

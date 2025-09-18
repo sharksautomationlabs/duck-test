@@ -16,7 +16,7 @@ import AnimatedSection from './components/AnimatedSection';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white overflow-x-hidden">
       <Header />
       <Hero />
       <AnimatedSection delay={0.2}>

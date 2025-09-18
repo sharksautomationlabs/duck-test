@@ -135,18 +135,18 @@ const Careers = () => {
         ></div>
       </div>
 
-      <div className="max-w-[1920px] mx-auto px-16 lg:px-24 xl:px-32 relative z-10 py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+      <div className="max-w-[1920px] mx-auto px-4 sm:px-8 lg:px-24 xl:px-32 relative z-10 py-12 sm:py-16 lg:py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-start">
           {/* Left side - Content */}
           <motion.div 
-            className="space-y-8 pr-[120px]"
+            className="space-y-6 sm:space-y-8 lg:pr-[120px] flex flex-col justify-center items-center lg:items-start lg:justify-start min-h-[60vh] lg:min-h-0 text-center lg:text-left"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           >
             <motion.h1 
-              className="font-['Lora'] font-semibold text-[64px] leading-[1.2] tracking-[1.28px] text-[#1A1A1A]"
+              className="font-['Lora'] font-semibold text-4xl sm:text-5xl lg:text-[64px] leading-[1.2] tracking-[0.5px] sm:tracking-[0.8px] lg:tracking-[1.28px] text-[#1A1A1A]"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -160,14 +160,14 @@ const Careers = () => {
             </motion.h1>
             
             <motion.div 
-              className="space-y-5 w-[550px]"
+              className="space-y-4 sm:space-y-5 w-full max-w-[550px]"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
               <motion.p 
-                className="font-['Poppins'] font-normal text-[16px] leading-[1.7] text-[#6b6b6b]"
+                className="font-['Poppins'] font-normal text-sm sm:text-base lg:text-[16px] leading-[1.6] sm:leading-[1.7] text-[#6b6b6b]"
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -177,7 +177,7 @@ const Careers = () => {
               </motion.p>
               
               <motion.p 
-                className="font-['Poppins'] font-normal text-[16px] leading-[1.7] text-[#6b6b6b]"
+                className="font-['Poppins'] font-normal text-sm sm:text-base lg:text-[16px] leading-[1.6] sm:leading-[1.7] text-[#6b6b6b]"
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -189,7 +189,7 @@ const Careers = () => {
 
             {/* Duck mascot with animation */}
             <motion.div 
-              className="relative w-[200px] h-[250px] mt-8"
+              className="relative w-[150px] h-[180px] sm:w-[180px] sm:h-[220px] lg:w-[200px] lg:h-[250px] mt-6 sm:mt-8 mx-auto lg:mx-0"
               initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
               animate={{ 
                 opacity: 1, 
@@ -247,14 +247,14 @@ const Careers = () => {
 
           {/* Right side - Contact Form */}
           <motion.div 
-            className="bg-white rounded-[20px] p-8 shadow-lg"
+            className="bg-white rounded-[15px] sm:rounded-[20px] p-4 sm:p-6 lg:p-8 shadow-lg"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
           >
             <motion.h2 
-              className="font-['Lora'] font-semibold text-[32px] text-[#1A1A1A] mb-6"
+              className="font-['Lora'] font-semibold text-2xl sm:text-3xl lg:text-[32px] text-[#1A1A1A] mb-4 sm:mb-6"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -263,7 +263,7 @@ const Careers = () => {
               Get in Touch
             </motion.h2>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
               {/* Name Field */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -271,7 +271,7 @@ const Careers = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.7 }}
               >
-                <label htmlFor="name" className="block font-['Poppins'] font-medium text-[14px] text-[#1A1A1A] mb-2">
+                <label htmlFor="name" className="block font-['Poppins'] font-medium text-xs sm:text-sm lg:text-[14px] text-[#1A1A1A] mb-2">
                   Full Name *
                 </label>
                 <input
@@ -281,7 +281,7 @@ const Careers = () => {
                   value={formData.name}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-[10px] font-['Poppins'] text-[14px] focus:outline-none focus:ring-2 focus:ring-[#ffbe02] focus:border-transparent transition-all duration-200"
+                  className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-[8px] sm:rounded-[10px] font-['Poppins'] text-xs sm:text-sm lg:text-[14px] focus:outline-none focus:ring-2 focus:ring-[#ffbe02] focus:border-transparent transition-all duration-200"
                   placeholder="Enter your full name"
                 />
               </motion.div>
@@ -293,7 +293,7 @@ const Careers = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.8 }}
               >
-                <label htmlFor="email" className="block font-['Poppins'] font-medium text-[14px] text-[#1A1A1A] mb-2">
+                <label htmlFor="email" className="block font-['Poppins'] font-medium text-xs sm:text-sm lg:text-[14px] text-[#1A1A1A] mb-2">
                   Email Address *
                 </label>
                 <input
@@ -303,7 +303,7 @@ const Careers = () => {
                   value={formData.email}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-[10px] font-['Poppins'] text-[14px] focus:outline-none focus:ring-2 focus:ring-[#ffbe02] focus:border-transparent transition-all duration-200"
+                  className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-[8px] sm:rounded-[10px] font-['Poppins'] text-xs sm:text-sm lg:text-[14px] focus:outline-none focus:ring-2 focus:ring-[#ffbe02] focus:border-transparent transition-all duration-200"
                   placeholder="Enter your email address"
                 />
               </motion.div>
@@ -315,7 +315,7 @@ const Careers = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.85 }}
               >
-                <label htmlFor="contact" className="block font-['Poppins'] font-medium text-[14px] text-[#1A1A1A] mb-2">
+                <label htmlFor="contact" className="block font-['Poppins'] font-medium text-xs sm:text-sm lg:text-[14px] text-[#1A1A1A] mb-2">
                   Contact Number *
                 </label>
                 <input
@@ -325,7 +325,7 @@ const Careers = () => {
                   value={formData.contact}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-[10px] font-['Poppins'] text-[14px] focus:outline-none focus:ring-2 focus:ring-[#ffbe02] focus:border-transparent transition-all duration-200"
+                  className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-[8px] sm:rounded-[10px] font-['Poppins'] text-xs sm:text-sm lg:text-[14px] focus:outline-none focus:ring-2 focus:ring-[#ffbe02] focus:border-transparent transition-all duration-200"
                   placeholder="Enter your contact number"
                 />
               </motion.div>
@@ -337,7 +337,7 @@ const Careers = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.9 }}
               >
-                <label htmlFor="subject" className="block font-['Poppins'] font-medium text-[14px] text-[#1A1A1A] mb-2">
+                <label htmlFor="subject" className="block font-['Poppins'] font-medium text-xs sm:text-sm lg:text-[14px] text-[#1A1A1A] mb-2">
                   Subject *
                 </label>
                 <input
@@ -347,7 +347,7 @@ const Careers = () => {
                   value={formData.subject}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-[10px] font-['Poppins'] text-[14px] focus:outline-none focus:ring-2 focus:ring-[#ffbe02] focus:border-transparent transition-all duration-200"
+                  className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-[8px] sm:rounded-[10px] font-['Poppins'] text-xs sm:text-sm lg:text-[14px] focus:outline-none focus:ring-2 focus:ring-[#ffbe02] focus:border-transparent transition-all duration-200"
                   placeholder="What's this about?"
                 />
               </motion.div>
@@ -359,7 +359,7 @@ const Careers = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 1.0 }}
               >
-                <label htmlFor="description" className="block font-['Poppins'] font-medium text-[14px] text-[#1A1A1A] mb-2">
+                <label htmlFor="description" className="block font-['Poppins'] font-medium text-xs sm:text-sm lg:text-[14px] text-[#1A1A1A] mb-2">
                   Brief Description (Optional)
                 </label>
                 <textarea
@@ -367,8 +367,8 @@ const Careers = () => {
                   name="description"
                   value={formData.description}
                   onChange={handleInputChange}
-                  rows={5}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-[10px] font-['Poppins'] text-[14px] focus:outline-none focus:ring-2 focus:ring-[#ffbe02] focus:border-transparent transition-all duration-200 resize-none"
+                  rows={4}
+                  className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-[8px] sm:rounded-[10px] font-['Poppins'] text-xs sm:text-sm lg:text-[14px] focus:outline-none focus:ring-2 focus:ring-[#ffbe02] focus:border-transparent transition-all duration-200 resize-none"
                   placeholder="Tell us about yourself and why you're interested in joining our team..."
                 />
               </motion.div>
@@ -377,7 +377,7 @@ const Careers = () => {
               <motion.button 
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-[#ffbe02] hover:bg-[#e6aa02] disabled:bg-gray-400 text-[#040404] font-['Poppins'] font-semibold px-8 py-4 rounded-[50px] text-[16px] transition-all duration-200 flex items-center justify-center hover-lift smooth-transition"
+                className="w-full bg-[#ffbe02] hover:bg-[#e6aa02] disabled:bg-gray-400 text-[#040404] font-['Poppins'] font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-[40px] sm:rounded-[50px] text-sm sm:text-base lg:text-[16px] transition-all duration-200 flex items-center justify-center hover-lift smooth-transition"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -391,7 +391,7 @@ const Careers = () => {
               {/* Status Messages */}
               {submitStatus === 'success' && (
                 <motion.div 
-                  className="p-4 bg-green-100 border border-green-400 text-green-700 rounded-[10px] font-['Poppins'] text-[14px]"
+                  className="p-3 sm:p-4 bg-green-100 border border-green-400 text-green-700 rounded-[8px] sm:rounded-[10px] font-['Poppins'] text-xs sm:text-sm lg:text-[14px]"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3 }}
@@ -402,7 +402,7 @@ const Careers = () => {
 
               {submitStatus === 'error' && (
                 <motion.div 
-                  className="p-4 bg-red-100 border border-red-400 text-red-700 rounded-[10px] font-['Poppins'] text-[14px]"
+                  className="p-3 sm:p-4 bg-red-100 border border-red-400 text-red-700 rounded-[8px] sm:rounded-[10px] font-['Poppins'] text-xs sm:text-sm lg:text-[14px]"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3 }}

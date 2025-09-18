@@ -14,6 +14,7 @@ import {
   Award,
   Clock
 } from 'lucide-react';
+import CalendlyWidget from './CalendlyWidget';
 
 const Services = () => {
 
@@ -137,18 +138,11 @@ const Services = () => {
     }
   ];
 
-  const openCalendly = () => {
-    if ((window as any).Calendly) {
-      (window as any).Calendly.initPopupWidget({
-        url: 'https://calendly.com/contact-duckbookwriters/30min',
-      });
-    }
-  };
 
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <section className="relative w-full h-[700px] overflow-hidden bg-white">
+      <section className="relative w-full min-h-[500px] sm:h-[600px] lg:h-[700px] overflow-hidden bg-white">
         {/* Background container */}
         <div 
           className="absolute top-0 left-0 h-full w-full overflow-hidden"
@@ -157,7 +151,7 @@ const Services = () => {
           }}
         ></div>
 
-        <div className="max-w-[1920px] mx-auto px-16 lg:px-24 xl:px-32 relative z-10 h-full flex items-center">
+        <div className="max-w-[1920px] mx-auto px-4 sm:px-8 lg:px-16 xl:px-24 2xl:px-32 relative z-10 h-full flex items-center pt-8 sm:pt-0">
           <div className="text-center w-full">
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
@@ -183,7 +177,7 @@ const Services = () => {
             </motion.div>
 
             <motion.h1 
-              className="font-['Lora'] font-semibold text-[64px] leading-[1.2] tracking-[1.28px] text-[#1A1A1A] mb-6"
+              className="font-['Lora'] font-semibold text-4xl sm:text-5xl lg:text-[64px] leading-[1.2] tracking-[0.5px] sm:tracking-[0.8px] lg:tracking-[1.28px] text-[#1A1A1A] mb-4 sm:mb-6"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -193,7 +187,7 @@ const Services = () => {
             </motion.h1>
             
             <motion.h2 
-              className="font-['Lora'] font-medium text-[32px] text-[#1A1A1A] mb-6"
+              className="font-['Lora'] font-medium text-xl sm:text-2xl lg:text-[32px] text-[#1A1A1A] mb-4 sm:mb-6"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -203,7 +197,7 @@ const Services = () => {
             </motion.h2>
             
             <motion.p 
-              className="font-['Poppins'] font-normal text-[18px] leading-[1.7] text-[#6B6B6B] max-w-4xl mx-auto mb-8"
+              className="font-['Poppins'] font-normal text-sm sm:text-base lg:text-[18px] leading-[1.7] text-[#6B6B6B] max-w-4xl mx-auto mb-6 sm:mb-8 px-4 sm:px-0"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -242,10 +236,10 @@ const Services = () => {
       </section>
 
       {/* Services Grid Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-[1920px] mx-auto px-16 lg:px-24 xl:px-32">
+      <section className="py-12 sm:py-16 lg:py-20 bg-white">
+        <div className="max-w-[1920px] mx-auto px-4 sm:px-8 lg:px-16 xl:px-24 2xl:px-32">
           <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
@@ -256,7 +250,7 @@ const Services = () => {
               return (
                 <motion.div
                   key={index}
-                  className="bg-white rounded-[20px] p-8 shadow-lg border border-gray-100 hover-lift smooth-transition group relative overflow-hidden"
+                  className="bg-white rounded-[20px] p-4 sm:p-6 lg:p-8 shadow-lg border border-gray-100 hover-lift smooth-transition group relative overflow-hidden"
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.3 }}
@@ -276,29 +270,29 @@ const Services = () => {
                   
                   <div className="relative z-10">
                     <motion.div 
-                      className="w-16 h-16 bg-[#FFBE02] rounded-[15px] flex items-center justify-center mb-6 group-hover:bg-[#e6aa02] transition-colors duration-300"
+                      className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-[#FFBE02] rounded-[15px] flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-[#e6aa02] transition-colors duration-300"
                       whileHover={{ 
                         rotate: [0, -5, 5, 0],
                         scale: 1.1
                       }}
                       transition={{ duration: 0.5 }}
                     >
-                      <IconComponent className="w-8 h-8 text-[#040404] transition-colors duration-300" />
+                      <IconComponent className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-[#040404] transition-colors duration-300" />
                     </motion.div>
                     
-                    <h3 className="font-['Lora'] font-semibold text-[24px] text-[#1A1A1A] mb-3 group-hover:text-[#FFBE02] transition-colors duration-300">
+                    <h3 className="font-['Lora'] font-semibold text-lg sm:text-xl lg:text-[24px] text-[#1A1A1A] mb-2 sm:mb-3 group-hover:text-[#FFBE02] transition-colors duration-300">
                       {service.title}
                     </h3>
                     
-                    <p className="font-['Poppins'] text-[16px] text-[#6B6B6B] mb-6 leading-[1.6]">
+                    <p className="font-['Poppins'] text-sm sm:text-base lg:text-[16px] text-[#6B6B6B] mb-4 sm:mb-6 leading-[1.6]">
                       {service.description}
                     </p>
                     
-                    <ul className="space-y-3 mb-8">
+                    <ul className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
                       {service.features.map((feature, featureIndex) => (
                         <motion.li 
                           key={featureIndex} 
-                          className="flex items-center font-['Poppins'] text-[14px] text-[#6B6B6B]"
+                          className="flex items-center font-['Poppins'] text-xs sm:text-sm lg:text-[14px] text-[#6B6B6B]"
                           initial={{ opacity: 0, x: -20 }}
                           whileInView={{ opacity: 1, x: 0 }}
                           viewport={{ once: true }}
@@ -313,19 +307,18 @@ const Services = () => {
                       ))}
                     </ul>
                     
-                    <motion.button 
-                      className="w-full bg-[#FFBE02] hover:bg-[#e6aa02] text-[#040404] font-['Poppins'] font-semibold px-6 py-3 rounded-[50px] text-[14px] transition-all duration-300 flex items-center justify-center gap-2 group/btn"
+                    <motion.div
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      onClick={openCalendly}
                     >
-                      Learn More
-                      <motion.div
-                        className="group-hover/btn:translate-x-1 transition-transform duration-300"
-                      >
-                        <ArrowRight className="w-4 h-4" />
+                      <CalendlyWidget 
+                        url="https://calendly.com/contact-duckbookwriters/30min"
+                        text="Learn More"
+                        size="md"
+                        fullWidth={true}
+                        className="w-full bg-[#FFBE02] hover:bg-[#e6aa02] text-[#040404] font-['Poppins'] font-semibold px-6 py-3 rounded-[50px] text-[14px] transition-all duration-300 flex items-center justify-center gap-2 group/btn"
+                      />
                       </motion.div>
-                    </motion.button>
                   </div>
                 </motion.div>
               );
@@ -335,17 +328,17 @@ const Services = () => {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-20 bg-[#F8F9FA]">
-        <div className="max-w-[1920px] mx-auto px-16 lg:px-24 xl:px-32">
+      <section className="py-12 sm:py-16 lg:py-20 bg-[#F8F9FA]">
+        <div className="max-w-[1920px] mx-auto px-4 sm:px-8 lg:px-16 xl:px-24 2xl:px-32">
           <motion.div 
-            className="text-center mb-16"
+            className="text-center mb-12 sm:mb-16"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <motion.h2 
-              className="font-['Lora'] font-semibold text-[48px] text-[#1A1A1A] mb-4"
+              className="font-['Lora'] font-semibold text-3xl sm:text-4xl lg:text-[48px] text-[#1A1A1A] mb-4"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -354,7 +347,7 @@ const Services = () => {
               Why Choose Duck Book Writers?
             </motion.h2>
             <motion.p 
-              className="font-['Poppins'] text-[18px] text-[#6B6B6B] max-w-3xl mx-auto"
+              className="font-['Poppins'] text-sm sm:text-base lg:text-[18px] text-[#6B6B6B] max-w-3xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -421,14 +414,14 @@ const Services = () => {
       <section className="py-20 bg-white">
         <div className="max-w-[1920px] mx-auto px-16 lg:px-24 xl:px-32">
           <motion.div 
-            className="text-center mb-16"
+            className="text-center mb-12 sm:mb-16"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <motion.h2 
-              className="font-['Lora'] font-semibold text-[48px] text-[#1A1A1A] mb-4"
+              className="font-['Lora'] font-semibold text-3xl sm:text-4xl lg:text-[48px] text-[#1A1A1A] mb-4"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -437,7 +430,7 @@ const Services = () => {
               Our Publishing Process
             </motion.h2>
             <motion.p 
-              className="font-['Poppins'] text-[18px] text-[#6B6B6B] max-w-3xl mx-auto"
+              className="font-['Poppins'] text-sm sm:text-base lg:text-[18px] text-[#6B6B6B] max-w-3xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -655,26 +648,17 @@ const Services = () => {
               </motion.div>
             </motion.div>
             
-            <motion.button 
-              onClick={openCalendly}
-              className="bg-[#FFBE02] hover:bg-[#e6aa02] text-[#040404] font-['Poppins'] font-semibold px-8 py-2 rounded-[50px] text-[18px] transition-all duration-300 hover-lift smooth-transition flex items-center justify-center gap-3 mx-auto group/btn"
-              // initial={{ opacity: 0, y: 30 }}
-              // whileInView={{ opacity: 1, y: 0 }}
-              // viewport={{ once: true }}
-              // transition={{ duration: 0.6, delay: 0.8 }}
-              // whileHover={{ 
-              //   scale: 1.05,
-              //   boxShadow: "0 20px 40px rgba(255, 190, 2, 0.3)"
-              // }}
-              // whileTap={{ scale: 0.95 }}
-            >
-              Get Started Today
               <motion.div
-                className="group-hover/btn:translate-x-1 transition-transform duration-300"
-              >
-                <ArrowRight className="w-5 h-5" />
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <CalendlyWidget 
+                url="https://calendly.com/contact-duckbookwriters/30min"
+                text="Get Started Today"
+                size="lg"
+                className="bg-[#FFBE02] hover:bg-[#e6aa02] text-[#040404] font-['Poppins'] font-semibold px-8 py-2 rounded-[50px] text-[18px] transition-all duration-300 hover-lift smooth-transition flex items-center justify-center gap-3 mx-auto group/btn"
+              />
               </motion.div>
-            </motion.button>
           </motion.div>
         </div>
       </section>

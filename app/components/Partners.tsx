@@ -12,7 +12,7 @@ const Partners = () => {
   ];
 
   return (
-    <section className="py-20 bg-white overflow-hidden">
+    <section className="py-12 sm:py-16 lg:py-20 bg-white overflow-hidden">
       <div className="marquee-wrapper">
         <div className="marquee-track">
           {/* First set of logos */}
@@ -23,7 +23,7 @@ const Partners = () => {
                 alt={`${partner.name} logo`}
                 width={partner.width}
                 height={partner.height}
-                className="object-contain"
+                className="object-contain w-32 h-12 sm:w-24 sm:h-10 lg:w-auto lg:h-auto"
               />
             </div>
           ))}
@@ -35,7 +35,7 @@ const Partners = () => {
                 alt={`${partner.name} logo`}
                 width={partner.width}
                 height={partner.height}
-                className="object-contain"
+                className="object-contain w-32 h-12 sm:w-24 sm:h-10 lg:w-auto lg:h-auto"
               />
             </div>
           ))}
@@ -58,10 +58,22 @@ const Partners = () => {
         
         .marquee-item {
           flex-shrink: 0;
-          margin: 0 5rem;
+          margin: 0 2rem;
           display: flex;
           align-items: center;
           justify-content: center;
+        }
+        
+        @media (min-width: 640px) {
+          .marquee-item {
+            margin: 0 3rem;
+          }
+        }
+        
+        @media (min-width: 1024px) {
+          .marquee-item {
+            margin: 0 5rem;
+          }
         }
         
         @keyframes marquee-scroll {
