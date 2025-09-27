@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Countdown from 'react-countdown';
-import { motion, AnimatePresence, useInView } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect, useRef } from 'react';
 import CalendlyWidget from './CalendlyWidget';
 
@@ -79,11 +79,6 @@ const CountdownRenderer = ({ hours, minutes, seconds, completed }: any) => {
 
 const ComingSoon = () => {
   const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { 
-    once: false, 
-    amount: 0.3,
-    margin: "-100px 0px -100px 0px"
-  });
 
   // Set target date (24 hours from now for demo)
   const targetDate = new Date();

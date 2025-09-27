@@ -3,16 +3,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
-import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 
 const AwardWinners = () => {
   const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { 
-    once: false, 
-    amount: 0.3,
-    margin: "-100px 0px -100px 0px"
-  });
 
   return (
     <section ref={sectionRef} className="relative w-full min-h-[400px] sm:h-[500px] lg:h-[650px] bg-white">

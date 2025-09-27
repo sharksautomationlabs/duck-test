@@ -1,16 +1,10 @@
 'use client';
 
 import Image from 'next/image';
-import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 
 const Authors = () => {
   const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, {
-    once: false,
-    amount: 0.3,
-    margin: "-100px 0px -100px 0px"
-  });
 
   const authors = [
     { name: "Mia Klassen", position: "Chief Talent Officer", image: "/images/author-1.png" },

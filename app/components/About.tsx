@@ -1,17 +1,12 @@
 'use client';
 
 import Image from 'next/image';
-import { motion, useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useRef } from 'react';
 import CalendlyWidget from './CalendlyWidget';
 
 const About = () => {
   const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { 
-    once: false, 
-    amount: 0.3,
-    margin: "-100px 0px -100px 0px"
-  });
 
 
   return (

@@ -8,7 +8,6 @@ import {
   Globe, 
   Headphones, 
   Shield, 
-  ArrowRight,
   Star,
   Users,
   Award,

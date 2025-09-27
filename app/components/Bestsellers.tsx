@@ -2,17 +2,12 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion, useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useRef } from 'react';
 import CalendlyWidget from './CalendlyWidget';
 
 const Bestsellers = () => {
   const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { 
-    once: false, 
-    amount: 0.3,
-    margin: "-100px 0px -100px 0px"
-  });
 
   const books = [
     {

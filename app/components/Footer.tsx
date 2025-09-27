@@ -3,7 +3,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 import React, { useState } from 'react';
-import CalendlyWidget from './CalendlyWidget';
 import emailjs from '@emailjs/browser';
 
 // Define interfaces for the data structures
@@ -145,7 +144,7 @@ const Footer: React.FC = () => {
                 {/* Middle Column - Contact Form */}
                 <div className="bg-white rounded-[15px] sm:rounded-[20px] p-4 sm:p-6 lg:p-8 shadow-lg sm:col-span-2 lg:col-span-1">
                   <h3 className="font-['Lora'] font-semibold text-xl sm:text-2xl text-[#1A1A1A] mb-4 sm:mb-6">
-                    Let's Talk About Your Book
+                    Let&apos;s Talk About Your Book
                   </h3>
 
                   <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
@@ -245,7 +244,7 @@ const Footer: React.FC = () => {
                     {/* Status Messages */}
                     {submitStatus === 'success' && (
                       <div className="p-2 bg-green-100 border border-green-400 text-green-700 rounded-[8px] font-['Poppins'] text-xs">
-                        Thank you! Your message has been sent. We'll get back to you soon.
+                        Thank you! Your message has been sent. We&apos;ll get back to you soon.
                       </div>
                     )}
 
