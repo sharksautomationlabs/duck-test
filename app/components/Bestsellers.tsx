@@ -16,23 +16,25 @@ const Bestsellers = () => {
 
   const books = [
     {
-      title: "Business\nPlan",
-      price: "$10",
-      image: "/images/book-3.png",
+      title: "Judy Book 1",
+      price: "$15",
+      image: "/images/judy-book1.jpg",
       imageWidth: 200,
       imageHeight: 300,
+      amazonLink: "https://www.amazon.in/dp/B0FQ2LTH5Y",
     },
     {
-      title: "Palvery\nEbook", 
-      price: "$10",
-      image: "/images/book-4.png",
+      title: "Judy Book 2", 
+      price: "$15",
+      image: "/images/judy-book2.jpg",
       imageWidth: 200,
       imageHeight: 300,
+      amazonLink: "https://www.amazon.com/You-Are-Not-Only-One/dp/1304017710",
     },
     {
-      title: "Delivering The\nBest Innovation",
-      price: "$10",
-      image: "/images/book-1.png",
+      title: "Judy Book 3",
+      price: "$15",
+      image: "/images/judy-book3.jpg",
       imageWidth: 200,
       imageHeight: 300,
     }
@@ -332,12 +334,23 @@ const Bestsellers = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: 0.7 + index * 0.2 }}
               >
-                <CalendlyWidget 
-                  url="https://calendly.com/contact-duckbookwriters/30min"
-                  text="Buy Now"
-                  size="sm"
-                  className="w-full bg-[#ffbe02] hover:bg-yellow-500 text-black font-['Poppins'] font-semibold py-1 rounded-2xl text-sm sm:text-base shadow-lg shadow-yellow-300/50 hover-lift smooth-transition"
-                />
+                {book.amazonLink ? (
+                  <a 
+                    href={book.amazonLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full bg-[#ffbe02] hover:bg-yellow-500 text-black font-['Poppins'] font-semibold py-1 rounded-2xl text-sm sm:text-base shadow-lg shadow-yellow-300/50 hover-lift smooth-transition block text-center"
+                  >
+                    Buy Now
+                  </a>
+                ) : (
+                  <CalendlyWidget 
+                    url="https://calendly.com/contact-duckbookwriters/30min"
+                    text="Buy Now"
+                    size="sm"
+                    className="w-full bg-[#ffbe02] hover:bg-yellow-500 text-black font-['Poppins'] font-semibold py-1 rounded-2xl text-sm sm:text-base shadow-lg shadow-yellow-300/50 hover-lift smooth-transition"
+                  />
+                )}
               </motion.div>
             </motion.div>
           ))}
