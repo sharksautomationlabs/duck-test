@@ -65,7 +65,7 @@ const Careers = () => {
         serviceId,
         templateId,
         {
-          to_email: process.env.NEXT_PUBLIC_CAREER_EMAIL || 'zaidrehan545@gmail.com',
+          to_email: process.env.NEXT_PUBLIC_CAREER_EMAIL || 'contact@duckbookwriters.com',
           from_name: formData.name,
           from_email: formData.email,
           contact_number: formData.contact,
