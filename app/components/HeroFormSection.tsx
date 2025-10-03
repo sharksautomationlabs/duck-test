@@ -241,7 +241,7 @@ const HeroFormSection = () => {
                   ease: "easeInOut"
                 }}
               >
-                <div className="relative w-80 h-96 sm:w-96 sm:h-[112] lg:w-[112] lg:h-[128] group">
+                <div className="relative w-80 h-96 sm:w-96 sm:h-[448] lg:w-[448] lg:h-[512] group">
                   <Image
                     src="/images/books/book1.jpg"
                     alt="Award Winning Book 1"
