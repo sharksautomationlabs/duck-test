@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { useRef } from 'react';
+import { motion } from 'framer-motion';
 
 const AwardWinners = () => {
   const sectionRef = useRef(null);
@@ -24,7 +25,7 @@ const AwardWinners = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center h-full py-8 lg:py-0">
           {/* Left Column: Title and Sub-text */}
           <div className="space-y-4 sm:space-y-6 text-center lg:text-left order-2 lg:order-1">
-            <h2 className="font-['Lora'] font-semibold text-4xl sm:text-5xl lg:text-6xl xl:text-8xl leading-tight text-gray-800">
+            <h2 className="font-['Poppins'] font-bold text-4xl sm:text-5xl lg:text-6xl xl:text-8xl leading-tight text-gray-800">
               Award
               <br />
               Winners
@@ -46,23 +47,76 @@ const AwardWinners = () => {
 
           {/* Right Column: Award Decoration and Image Cluster */}
           <div className="relative w-full max-w-[400px] sm:max-w-[500px] lg:max-w-[600px] xl:max-w-[700px] h-[250px] sm:h-[350px] lg:h-[450px] xl:h-[500px] mx-auto lg:mx-0 order-1 lg:order-2">
-            {/* Base Image: Podium and Stars */}
-            <Image
-              src="/images/award-decoration.png"
-              alt="Award Decoration Podium and Stars"
-              layout="fill"
-              objectFit="contain"
-            />
             
-            {/* Overlay Image: Book */}
-            <div className="absolute top-[60px] sm:top-[80px] lg:top-[100px] xl:top-[118px] left-1/2 -translate-x-1/2 w-[100px] sm:w-[150px] lg:w-[180px] xl:w-[200px] h-[150px] sm:h-[220px] lg:h-[260px] xl:h-[300px]">
+            {/* Center Book with Floating Motion */}
+            <motion.div 
+              className="absolute top-[60px] sm:top-[80px] lg:top-[100px] xl:top-[118px] left-1/2 -translate-x-1/2 w-[100px] sm:w-[150px] lg:w-[180px] xl:w-[200px] h-[150px] sm:h-[220px] lg:h-[260px] xl:h-[300px] z-10"
+              animate={{ 
+                y: [-8, 8, -8]
+              }}
+              transition={{ 
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            >
               <Image
-                src="/images/award-image.png"
-                alt="Award Winning Book"
+                src="/images/books/book1.jpg"
+                alt="The Journey Within - Award Winning Book"
                 layout="fill"
                 objectFit="contain"
               />
-            </div>
+            </motion.div>
+
+            {/* Left Book - Behind Center Book, Closer Position */}
+            <motion.div 
+              className="absolute top-[70px] sm:top-[90px] lg:top-[110px] xl:top-[128px] left-[60px] sm:left-[80px] lg:left-[100px] xl:left-[120px] w-[80px] sm:w-[120px] lg:w-[140px] xl:w-[160px] h-[120px] sm:h-[180px] lg:h-[220px] xl:h-[250px] z-0"
+              animate={{ 
+                y: [-6, 6, -6],
+                rotate: [25, 25, 25]
+              }}
+              transition={{ 
+                duration: 3.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 0.5
+              }}
+              style={{ 
+                transformOrigin: 'center'
+              }}
+            >
+              <Image
+                src="/images/books/book2.jpg"
+                alt="You Are Not Only One - Award Winning Book"
+                layout="fill"
+                objectFit="contain"
+              />
+            </motion.div>
+
+            {/* Right Book - Behind Center Book, Closer Position */}
+            <motion.div 
+              className="absolute top-[70px] sm:top-[90px] lg:top-[110px] xl:top-[128px] right-[60px] sm:right-[80px] lg:right-[100px] xl:right-[120px] w-[80px] sm:w-[120px] lg:w-[140px] xl:w-[160px] h-[120px] sm:h-[180px] lg:h-[220px] xl:h-[250px] z-0"
+              animate={{ 
+                y: [-6, 6, -6],
+                rotate: [-25, -25, -25]
+              }}
+              transition={{ 
+                duration: 3.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 1
+              }}
+              style={{ 
+                transformOrigin: 'center'
+              }}
+            >
+              <Image
+                src="/images/books/book3.jpg"
+                alt="Stories of Hope - Award Winning Book"
+                layout="fill"
+                objectFit="contain"
+              />
+            </motion.div>
 
             {/* Overlay Image: Duck Mascot with jumping animation and sparkles */}
             {/* <motion.div 

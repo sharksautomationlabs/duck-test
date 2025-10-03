@@ -12,20 +12,12 @@ const About = () => {
   return (
     <section ref={sectionRef} className="relative w-full min-h-[700px] sm:h-[700px] lg:h-[878px] overflow-hidden bg-white">
       {/* Background container for the right side */}
-      <div className="absolute top-0 right-0 h-full w-full lg:w-[65%] rounded-bl-[20px] rounded-tl-[20px] bg-[#efefef] overflow-hidden">
-        {/* Blue gradient overlay */}
-        <div 
-          className="absolute inset-0 opacity-40"
-          style={{
-            background: 'radial-gradient(ellipse at center, rgba(0,27,134,1) 0%, rgba(0,27,134,0) 100%)'
-          }}
-        ></div>
-
+      <div className="absolute top-0 right-0 h-full w-full lg:w-[65%] rounded-bl-[20px] rounded-tl-[20px] bg-yellow-400 overflow-hidden">
         {/* Yellow gradient overlay */}
         <div 
-          className="absolute inset-0 opacity-40"
+          className="absolute inset-0 opacity-60"
           style={{
-            background: 'radial-gradient(ellipse at bottom left, rgba(255,224,51,1) 0%, rgb(255, 255, 255) 100%)'
+            background: 'radial-gradient(ellipse at center, rgba(255,190,2,1) 0%, rgba(255,190,2,0.8) 100%)'
           }}
         ></div>
       </div>
@@ -43,14 +35,52 @@ const About = () => {
             <motion.div 
               className="w-full max-w-[400px] sm:max-w-[500px] lg:max-w-[647px] h-[350px] sm:h-[400px] lg:h-[653px] relative mx-auto"
               whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.3 }}
+              animate={{ 
+                y: [-10, 10, -10]
+              }}
+              transition={{ 
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
             >
+              {/* Background Health Book - Moved further right */}
+              <motion.div
+                className="absolute inset-0 z-0"
+                animate={{ 
+                  y: [-5, 5, -5]
+                }}
+                transition={{ 
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1
+                }}
+                style={{ 
+                  transform: 'translateX(20px) translateY(-120px)',
+                  transformOrigin: 'center'
+                }}
+              >
+                <Image
+                  src="/images/health books/book4.jpg"
+                  alt="Mental Wellness"
+                  width={647}
+                  height={653}
+                  className="w-full h-full object-contain opacity-60"
+                />
+              </motion.div>
+              
+              {/* Foreground Self-Help Book - Moved further left */}
               <Image
-                src="/images/about-section-image.png"
-                alt="About Duck Book Writers"
+                src="/images/selfhelp/book4.jpg"
+                alt="Self-Help Book 4"
                 width={647}
                 height={653}
-                className="w-full h-full object-contain"
+                className="w-full h-full object-contain relative z-10"
+                style={{ 
+                  transform: 'translateX(150px)',
+                  transformOrigin: 'center'
+                }}
               />
             </motion.div>
             
@@ -227,13 +257,13 @@ const About = () => {
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           >
             <motion.h2 
-              className="font-['Lora'] font-semibold text-[32px] sm:text-[40px] lg:text-[50px] xl:text-[64px] leading-[1.2] tracking-[0.64px] sm:tracking-[0.8px] lg:tracking-[1px] xl:tracking-[1.28px] text-[#1A1A1A] text-center lg:text-left"
+              className="font-['Poppins'] font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-none tracking-tight text-white text-center lg:text-left"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              Bringing Authors&apos;
+              Bringing Author&apos;s
               <br />
               Stories to Readers
               <br />
@@ -248,34 +278,25 @@ const About = () => {
               transition={{ duration: 0.6, delay: 0.6 }}
             >
               <motion.p 
-                className="font-['Poppins'] font-normal text-[14px] sm:text-[15px] lg:text-[16px] leading-[1.6] sm:leading-[1.7] text-[#6b6b6b]"
+                className="font-['Poppins'] text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 font-medium leading-relaxed max-w-lg"
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.7 }}
               >
-                Duck Book Writers is a full-service publishing house based in Houston, Texas, serving authors around the globe. We specialize in publishing, designing, and marketing books worldwide. We bring powerful stories to life and connect them with readers everywhere.
+                We transform your manuscript into a published masterpiece that makes waves in the literary world.
               </motion.p>
               
               <motion.p 
-                className="font-['Poppins'] font-normal text-[14px] sm:text-[15px] lg:text-[16px] leading-[1.6] sm:leading-[1.7] text-[#6b6b6b]"
+                className="font-['Poppins'] text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 font-medium leading-relaxed max-w-lg"
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.8 }}
               >
-                Whether you are an aspiring author or an established bestseller, we handle every stage of the journey from manuscript development to stunning cover design, from global distribution to strategic marketing campaigns that boost sales and visibility.
+                From editing to distribution, we handle the heavy lifting so you can focus on what matters most: writing your story.
               </motion.p>
               
-              <motion.p 
-                className="font-['Poppins'] font-normal text-[14px] sm:text-[15px] lg:text-[16px] leading-[1.6] sm:leading-[1.7] text-[#6b6b6b]"
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.9 }}
-              >
-                Our mission is simple: help great books find their audience and help authors achieve the success they deserve.
-              </motion.p>
             </motion.div>
             
             <motion.div
@@ -289,7 +310,7 @@ const About = () => {
                 url="https://calendly.com/contact-duckbookwriters/30min"
                 text="Learn More"
                 size="md"
-                className="bg-[#ffbe02] hover:bg-[#e6aa02] text-[#040404] font-['Poppins'] font-semibold rounded-[50px] transition-all duration-200 w-[140px] sm:w-[166px] h-[36px] sm:h-[42px] hover-lift smooth-transition"
+                className="!bg-black hover:!bg-black text-white font-['Poppins'] font-semibold rounded-[50px] transition-all duration-200 w-[140px] sm:w-[166px] h-[36px] sm:h-[42px] hover-lift smooth-transition"
               />
             </motion.div>
           </motion.div>

@@ -1,224 +1,181 @@
 'use client';
 
 import Image from 'next/image';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Authors = () => {
   const sectionRef = useRef(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const authors = [
-    { name: "Mia Klassen", position: "Chief Talent Officer", image: "/images/author-1.png" },
-    { name: "Jonathan Leon", position: "Chief Talent Officer", image: "/images/author-2.png" },
-    { name: "Steffi Allysa", position: "Chief Creative Officer", image: "/images/author-3.png" },
+    { 
+      name: "Daniel Alston", 
+      image: "/images/author-2.png",
+      bio: "Daniel Alston is known for his engaging and imaginative childrens books, bringing stories to life for young readers.",
+      books: "1 Published Books. 1 on it way",
+      genre: "Childrens book"
+    },
+    { 
+      name: "Judith Hobson", 
+      image: "/images/author-1.png",
+      bio: "Judith Hobson writes self biographies, sharing personal journeys and life experiences through her published works.",
+      books: "3 Published Books",
+      genre: "Self Biographies"
+    },
+    { 
+      name: "Michael Thompson", 
+      image: "/images/author-3.png",
+      bio: "Michael Thompson specializes in business and self-help, offering readers valuable insights and practical advice.",
+      books: "6 Published Books",
+      genre: "Business & Self-Help"
+    },
   ];
 
   return (
-    <section ref={sectionRef} className="relative py-12 sm:py-16 lg:py-20">
-      {/* Floating Mascots with quiver and sparkles */}
-      {/* <motion.div
-        className="absolute top-8 left-16 z-20 w-32 h-40"
-        initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
-        animate={{
-          opacity: 1,
-          scale: 1,
-          // Gentle continuous quiver
-          y: [0, -1, 1, -1, 1, 0],
-          rotate: [0, 0.5, -0.5, 0.5, -0.5, 0]
-        }}
-        transition={{
-          duration: 1.5,
-          delay: 0.3,
-          ease: "easeInOut",
-          // Quiver animation settings
-          y: {
-            duration: 2,
-            repeat: Infinity,
-            repeatType: "loop",
-            ease: "easeInOut"
-          },
-          rotate: {
-            duration: 2,
-            repeat: Infinity,
-            repeatType: "loop",
-            ease: "easeInOut"
-          }
-        }}
-        whileHover={{ scale: 1.05, rotate: 5 }} */}
-      {/* >
-        <Image src="/images/duck-mascot-3.png" alt="Duck Mascot" width={140} height={172} /> */}
+    <section ref={sectionRef} className="relative py-12 sm:py-16 lg:py-20 bg-white overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-20 left-10 w-32 h-32 bg-yellow-200/20 rounded-full blur-xl"></div>
+        <div className="absolute bottom-20 right-10 w-40 h-40 bg-blue-200/20 rounded-full blur-xl"></div>
+        <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-purple-200/20 rounded-full blur-xl"></div>
+      </div>
 
-        {/* Yellow sparkles coming out of the book - only visible when section is in focus */}
-        {/* <motion.div
-          className="absolute top-[60px] left-[70px] w-[6px] h-[6px] bg-yellow-400 rounded-full opacity-0"
-          animate={{
-            opacity: isInView ? [0, 1, 0] : 0,
-            y: isInView ? [0, -80, -100] : 0,
-            x: isInView ? [0, 8, -5] : 0,
-            scale: isInView ? [0.5, 1.5, 1, 0] : 0
-          }}
-          transition={{
-            duration: 2.5,
-            repeat: Infinity,
-            repeatType: "loop",
-            ease: "easeOut",
-            delay: 1.8  // Wait for mascot to reach final position
-          }}
-          style={{
-            boxShadow: isInView ? '0 0 25px #fbbf24, 0 0 50px #fbbf24, 0 0 75px #fbbf24' : 'none'
-          }}
-        />
-
-        <motion.div
-          className="absolute top-[55px] left-[65px] w-[5px] h-[5px] bg-yellow-300 rounded-full opacity-0"
-          animate={{
-            opacity: isInView ? [0, 1, 0] : 0,
-            y: isInView ? [0, -70, -90] : 0,
-            x: isInView ? [0, -6, 4] : 0,
-            scale: isInView ? [0.3, 1.3, 0.8, 0] : 0
-          }}
-          transition={{
-            duration: 2.2,
-            repeat: Infinity,
-            repeatType: "loop",
-            ease: "easeOut",
-            delay: 2.1  // Wait for mascot + 0.3s stagger
-          }}
-          style={{
-            boxShadow: isInView ? '0 0 20px #f59e0b, 0 0 40px #f59e0b, 0 0 60px #f59e0b' : 'none'
-          }}
-        />
-
-        <motion.div
-          className="absolute top-[65px] left-[75px] w-[7px] h-[7px] bg-yellow-500 rounded-full opacity-0"
-          animate={{
-            opacity: isInView ? [0, 1, 0] : 0,
-            y: isInView ? [0, -75, -95] : 0,
-            x: isInView ? [0, 5, -7] : 0,
-            scale: isInView ? [0.4, 1.4, 0.9, 0] : 0
-          }}
-          transition={{
-            duration: 2.8,
-            repeat: Infinity,
-            repeatType: "loop",
-            ease: "easeOut",
-            delay: 2.4  // Wait for mascot + 0.6s stagger
-          }}
-          style={{
-            boxShadow: isInView ? '0 0 30px #eab308, 0 0 60px #eab308, 0 0 90px #eab308' : 'none'
-          }}
-        />
-
-        <motion.div
-          className="absolute top-[50px] left-[60px] w-[4px] h-[4px] bg-yellow-400 rounded-full opacity-0"
-          animate={{
-            opacity: isInView ? [0, 1, 0] : 0,
-            y: isInView ? [0, -60, -80] : 0,
-            x: isInView ? [0, -3, 6] : 0,
-            scale: isInView ? [0.2, 1.2, 0.7, 0] : 0
-          }}
-          transition={{
-            duration: 2.0,
-            repeat: Infinity,
-            repeatType: "loop",
-            ease: "easeOut",
-            delay: 2.7  // Wait for mascot + 0.9s stagger
-          }}
-          style={{
-            boxShadow: isInView ? '0 0 18px #fbbf24, 0 0 36px #fbbf24, 0 0 54px #fbbf24' : 'none'
-          }}
-        />
-
-        <motion.div
-          className="absolute top-[70px] left-[80px] w-[5px] h-[5px] bg-yellow-300 rounded-full opacity-0"
-          animate={{
-            opacity: isInView ? [0, 1, 0] : 0,
-            y: isInView ? [0, -65, -85] : 0,
-            x: isInView ? [0, 7, -4] : 0,
-            scale: isInView ? [0.3, 1.3, 0.8, 0] : 0
-          }}
-          transition={{
-            duration: 2.3,
-            repeat: Infinity,
-            repeatType: "loop",
-            ease: "easeOut",
-            delay: 3.0  // Wait for mascot + 1.2s stagger
-          }}
-          style={{
-            boxShadow: isInView ? '0 0 22px #f59e0b, 0 0 44px #f59e0b, 0 0 66px #f59e0b' : 'none'
-          }}
-        />
-
-        <motion.div
-          className="absolute top-[45px] left-[55px] w-[3px] h-[3px] bg-yellow-500 rounded-full opacity-0"
-          animate={{
-            opacity: isInView ? [0, 1, 0] : 0,
-            y: isInView ? [0, -55, -75] : 0,
-            x: isInView ? [0, -2, 3] : 0,
-            scale: isInView ? [0.1, 1.1, 0.6, 0] : 0
-          }}
-          transition={{
-            duration: 1.8,
-            repeat: Infinity,
-            repeatType: "loop",
-            ease: "easeOut",
-            delay: 3.3  // Wait for mascot + 1.5s stagger
-          }}
-          style={{
-            boxShadow: isInView ? '0 0 15px #eab308, 0 0 30px #eab308, 0 0 45px #eab308' : 'none'
-          }}
-        />
-      </motion.div> */}
-      {/* <div className="absolute top-1/2 -translate-y-1/2 right-16 z-20 w-32 h-40">
-        <Image src="/images/duck-mascot-3.png" alt="Duck Mascot" width={128} height={160} />
-      </div> */}
-
-      {/* Main Content Card */}
-      <div
-        className="relative max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 lg:pt-20 pb-32 sm:pb-24 lg:pb-32 rounded-[20px] sm:rounded-[30px] lg:rounded-[40px] border border-gray-200/80 shadow-lg"
-        style={{
-          background: 'radial-gradient(ellipse at bottom right, rgba(255, 224, 51, 0.25) 0%, rgba(255, 224, 51, 0) 70%), linear-gradient(to bottom, #FDFDFD, #F5F6FF)'
-        }}
-      >
+      <div className="relative max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
-          <h2 className="font-['Lora'] font-semibold text-3xl sm:text-4xl lg:text-5xl text-gray-800 mb-3 sm:mb-4">
+        <motion.div
+          className="text-center mb-12 sm:mb-16 lg:mb-20"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+           <h2 className="font-['Poppins'] font-bold text-4xl sm:text-5xl lg:text-6xl text-gray-800 mb-4 sm:mb-6">
             Meet Our Authors
           </h2>
-          <p className="font-['Poppins'] text-sm sm:text-base text-gray-500 max-w-3xl mx-auto px-4">
-            From first-time storytellers to established literary icons, our authors are the heart of Duck Book Writers. Explore their biographies, dive into their latest releases, watch interviews, and learn about upcoming events.
+          <p className="font-['Poppins'] text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
+            Discover the talented writers behind our bestselling books. Each author brings unique perspectives and storytelling mastery to our publishing family.
+          </p>
+        </motion.div>
+
+        {/* Beautiful Carousel */}
+        <div className="relative">
+          {/* Main Carousel Container */}
+          <div className="relative h-[500px] sm:h-[600px] lg:h-[700px] overflow-hidden rounded-3xl">
+             <AnimatePresence mode="wait">
+        <motion.div
+                 key={currentIndex}
+                 className="absolute inset-0 flex items-center justify-center"
+                 initial={{ opacity: 0, x: 300 }}
+                 animate={{ opacity: 1, x: 0 }}
+                 exit={{ opacity: 0, x: -300 }}
+                 transition={{ duration: 0.5, ease: "easeInOut" }}
+               >
+                {/* Author Card */}
+                <div className="relative w-full max-w-4xl mx-auto">
+                  <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                    {/* Author Image */}
+        <motion.div
+                      className="relative"
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <div className="relative w-full h-[400px] sm:h-[500px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl">
+                        <Image
+                          src={authors[currentIndex].image}
+                          alt={authors[currentIndex].name}
+                          width={600}
+                          height={800}
+                          className="w-full h-full object-cover"
+                          priority={currentIndex === 0}
+                          unoptimized={true}
+                          onError={(e) => {
+                            console.log('Image error for:', authors[currentIndex].name, authors[currentIndex].image);
+                            // Try to reload the image
+                            e.currentTarget.src = authors[currentIndex].image + '?t=' + Date.now();
+                          }}
+                        />
+                        {/* Gradient Overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                        
+                      </div>
+                    </motion.div>
+
+                    {/* Author Info */}
+        <motion.div
+                      className="space-y-6 lg:space-y-8"
+                      initial={{ opacity: 0, x: 50 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: 0.2 }}
+                    >
+                      <div>
+                         <motion.h3 
+                           className="font-['Poppins'] font-bold text-3xl sm:text-4xl lg:text-5xl text-gray-800 mb-4"
+                          whileHover={{ color: "#ffbe02" }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          {authors[currentIndex].name}
+                        </motion.h3>
+                        <div className="flex items-center gap-2 mb-4">
+                          <span className="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm font-medium">
+                            {authors[currentIndex].genre}
+                          </span>
+                          <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
+                            {authors[currentIndex].books}
+                          </span>
+                        </div>
+                         <p className="font-['Poppins'] text-lg text-gray-600 leading-relaxed">
+                          {authors[currentIndex].bio}
           </p>
         </div>
 
-        {/* Authors Grid */}
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-10 sm:gap-8 lg:gap-12">
-          {authors.map((author, index) => (
-            <div key={index} className="relative w-full max-w-[250px] sm:max-w-[320px] lg:w-72 h-[250px] sm:h-[320px] lg:h-96 mx-auto sm:mx-0 mb-12 sm:mb-0">
-              {/* Transparent Card with White Border */}
-              <div className="w-full h-full bg-transparent border-2 border-white rounded-2xl flex items-center justify-center">
-                <div className="w-[calc(100%-1.5rem)] h-[calc(100%-1.5rem)] rounded-xl overflow-hidden">
-                  <Image
-                    src={author.image}
-                    alt={`Portrait of ${author.name}`}
-                    width={288}
-                    height={384}
-                    className={`w-full h-full object-contain transition-transform duration-300 ${
-                        index === 0 ? 'scale-150 lg:scale-[1.75]' : index === 2 ? 'scale-110 lg:scale-[1.2]' : ''
-                    }`}
-                  />
+                    </motion.div>
                 </div>
               </div>
+              </motion.div>
+            </AnimatePresence>
 
-              {/* Text Card Overlay */}
-              <div className="absolute bottom-[-8px] sm:bottom-[-25px] left-1/2 -translate-x-1/2 bg-white rounded-lg text-center py-2 sm:py-3 px-4 sm:px-6 shadow-md w-[85%]">
-                <h3 className="font-['Poppins'] font-bold text-sm sm:text-base text-gray-800">
-                  {author.name}
-                </h3>
-                <p className="font-['Poppins'] text-[10px] sm:text-xs text-gray-500">
-                  {author.position}
-                </p>
+            {/* Navigation Arrows */}
+            <motion.button
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white shadow-lg rounded-full flex items-center justify-center z-10"
+              onClick={() => setCurrentIndex((prev) => (prev - 1 + authors.length) % authors.length)}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </motion.button>
+
+            <motion.button
+              className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white shadow-lg rounded-full flex items-center justify-center z-10"
+              onClick={() => setCurrentIndex((prev) => (prev + 1) % authors.length)}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </motion.button>
               </div>
-            </div>
-          ))}
+
+          {/* Dots Indicator */}
+          <div className="flex justify-center mt-8 gap-3">
+            {authors.map((_, index) => (
+              <motion.button
+                key={index}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  index === currentIndex 
+                    ? 'bg-yellow-400 scale-125' 
+                    : 'bg-gray-300 hover:bg-gray-400'
+                }`}
+                onClick={() => setCurrentIndex(index)}
+                whileHover={{ scale: 1.2 }}
+                whileTap={{ scale: 0.9 }}
+              />
+            ))}
+              </div>
+
         </div>
       </div>
     </section>

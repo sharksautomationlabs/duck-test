@@ -1,20 +1,13 @@
 import type { Metadata } from "next";
-import { Poppins, Lora } from "next/font/google";
+import { Poppins } from "next/font/google";
 import Script from "next/script";
 import FacebookPixel from "./components/FacebookPixel";
 import "./globals.css";
 
 const poppins = Poppins({
-  weight: ['300', '400', '600', '700'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
   subsets: ['latin'],
   variable: '--font-poppins',
-  display: 'swap',
-});
-
-const lora = Lora({
-  weight: ['400', '500', '600', '700'],
-  subsets: ['latin'],
-  variable: '--font-lora',
   display: 'swap',
 });
 
@@ -39,7 +32,7 @@ export default function RootLayout({
         {/* added for calendly     */}
       </head>
       <body
-        className={`${poppins.variable} ${lora.variable} antialiased`}
+        className={`${poppins.variable} antialiased`}
       >
         <FacebookPixel />
         {children}

@@ -7,16 +7,18 @@ import { motion } from 'framer-motion';
 const NewReleases = () => {
   const releases = [
     {
-      titleLine1: "DELIVERING THE",
-      titleLine2: "BEST INNOVATION",
-      imageSrc: "/images/book-1.png",
-      altText: "Delivering The Best Innovation",
+      titleLine1: "COUPLES THERAPY",
+      titleLine2: "WORKBOOK",
+      imageSrc: "/images/selfhelp/book1.jpg",
+      altText: "Couples Therapy Workbook",
+      description: "A comprehensive guide to improving communication and strengthening relationships through practical exercises and proven techniques."
     },
     {
-      titleLine1: "LOT LIGHT",
-      titleLine2: "EBOOK",
-      imageSrc: "/images/book-2.png",
-      altText: "Lot Light Ebook",
+      titleLine1: "HEAL YOUR",
+      titleLine2: "INNER CHILD",
+      imageSrc: "/images/selfhelp/book2.jpg",
+      altText: "Heal Your Inner Child",
+      description: "Transform your relationships and emotional well-being by healing childhood wounds and developing healthier patterns."
     }
   ];
 
@@ -31,7 +33,7 @@ const NewReleases = () => {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="font-['Lora'] font-medium text-3xl sm:text-4xl lg:text-5xl text-gray-800 mb-3 sm:mb-4">
+          <h2 className="font-['Poppins'] font-bold text-3xl sm:text-4xl lg:text-5xl text-gray-800 mb-3 sm:mb-4">
             New Releases
           </h2>
           <p className="font-['Poppins'] text-sm sm:text-base text-gray-500 max-w-3xl mx-auto px-4">
@@ -68,7 +70,7 @@ const NewReleases = () => {
                     alt={book.altText}
                     width={224}
                     height={320}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                   />
                 </div>
               </motion.div>
@@ -89,7 +91,7 @@ const NewReleases = () => {
                 
                 {/* Title */}
                 <motion.h3 
-                  className="font-['Lora'] font-medium text-xl sm:text-2xl leading-tight text-gray-800"
+                  className="font-['Poppins'] font-medium text-xl sm:text-2xl leading-tight text-gray-800"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -99,16 +101,16 @@ const NewReleases = () => {
                   {book.titleLine2}
                 </motion.h3>
                 
+                
                 {/* Description */}
                 <motion.p 
                   className="font-['Poppins'] font-normal text-sm sm:text-base text-gray-500"
                   initial={{ opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.5 + index * 0.2 }}
+                  transition={{ duration: 0.5, delay: 0.6 + index * 0.2 }}
                 >
-                  A lectus ac pulvinar tincidunt accumsan<br />
-                  Ullamcor dolor at lectus facilisis hac.
+                  {book.description}
                 </motion.p>
                 
                 {/* Read Now button */}
@@ -118,7 +120,7 @@ const NewReleases = () => {
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.6 + index * 0.2 }}
+                    transition={{ duration: 0.5, delay: 0.7 + index * 0.2 }}
                     whileHover={{ x: 5 }}
                   >
                     <span className="font-['Poppins'] font-semibold text-[#ffbe02] text-sm sm:text-base">

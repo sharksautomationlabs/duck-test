@@ -176,7 +176,7 @@ const Services = () => {
             </motion.div>
 
             <motion.h1 
-              className="font-['Lora'] font-semibold text-4xl sm:text-5xl lg:text-[64px] leading-[1.2] tracking-[0.5px] sm:tracking-[0.8px] lg:tracking-[1.28px] text-[#1A1A1A] mb-4 sm:mb-6"
+              className="font-['Poppins'] font-semibold text-4xl sm:text-5xl lg:text-[64px] leading-[1.2] tracking-[0.5px] sm:tracking-[0.8px] lg:tracking-[1.28px] text-[#1A1A1A] mb-4 sm:mb-6"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -186,7 +186,7 @@ const Services = () => {
             </motion.h1>
             
             <motion.h2 
-              className="font-['Lora'] font-medium text-xl sm:text-2xl lg:text-[32px] text-[#1A1A1A] mb-4 sm:mb-6"
+              className="font-['Poppins'] font-medium text-xl sm:text-2xl lg:text-[32px] text-[#1A1A1A] mb-4 sm:mb-6"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -279,7 +279,7 @@ const Services = () => {
                       <IconComponent className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-[#040404] transition-colors duration-300" />
                     </motion.div>
                     
-                    <h3 className="font-['Lora'] font-semibold text-lg sm:text-xl lg:text-[24px] text-[#1A1A1A] mb-2 sm:mb-3 group-hover:text-[#FFBE02] transition-colors duration-300">
+                    <h3 className="font-['Poppins'] font-bold text-lg sm:text-xl lg:text-[24px] text-[#1A1A1A] mb-2 sm:mb-3 group-hover:text-[#FFBE02] transition-colors duration-300">
                       {service.title}
                     </h3>
                     
@@ -337,7 +337,7 @@ const Services = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <motion.h2 
-              className="font-['Lora'] font-semibold text-3xl sm:text-4xl lg:text-[48px] text-[#1A1A1A] mb-4"
+              className="font-['Poppins'] font-semibold text-3xl sm:text-4xl lg:text-[48px] text-[#1A1A1A] mb-4"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -384,7 +384,7 @@ const Services = () => {
                   </motion.div>
                   
                   <motion.h3 
-                    className="font-['Lora'] font-semibold text-[20px] text-[#1A1A1A] mb-3 group-hover:text-[#FFBE02] transition-colors duration-300"
+                    className="font-['Poppins'] font-semibold text-[20px] text-[#1A1A1A] mb-3 group-hover:text-[#FFBE02] transition-colors duration-300"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
@@ -420,7 +420,7 @@ const Services = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <motion.h2 
-              className="font-['Lora'] font-semibold text-3xl sm:text-4xl lg:text-[48px] text-[#1A1A1A] mb-4"
+              className="font-['Poppins'] font-semibold text-3xl sm:text-4xl lg:text-[48px] text-[#1A1A1A] mb-4"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -510,13 +510,13 @@ const Services = () => {
                 }}
               >
                 <motion.div 
-                  className="w-16 h-16 bg-[#FFBE02] text-[#040404] rounded-full flex items-center justify-center mx-auto mb-6 font-['Lora'] font-bold text-[18px] relative"
+                  className="w-16 h-16 bg-[#FFBE02] text-[#040404] rounded-full flex items-center justify-center mx-auto mb-6 font-['Poppins'] font-bold text-[18px] relative"
                 >
                   <span className="relative z-10">{step.step}</span>
                 </motion.div>
                 
                 <motion.h3 
-                  className="font-['Lora'] font-semibold text-[18px] text-[#1A1A1A] mb-3"
+                  className="font-['Poppins'] font-semibold text-[18px] text-[#1A1A1A] mb-3"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -602,7 +602,7 @@ const Services = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <motion.h2 
-              className="font-['Lora'] font-semibold text-[48px] text-[#1A1A1A] mb-6"
+              className="font-['Poppins'] font-semibold text-[48px] text-[#1A1A1A] mb-6"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

@@ -11,24 +11,24 @@ const Bestsellers = () => {
 
   const books = [
     {
-      title: "Judy Book 1",
-      price: "$15",
+      title: "An Old Little Lady",
+      author: "Judy Hobson",
       image: "/images/judy-book1.jpg",
       imageWidth: 200,
       imageHeight: 300,
       amazonLink: "https://www.amazon.in/dp/B0FQ2LTH5Y",
     },
     {
-      title: "Judy Book 2", 
-      price: "$15",
+      title: "You Are Not Only One", 
+      author: "Judy Hobson",
       image: "/images/judy-book2.jpg",
       imageWidth: 200,
       imageHeight: 300,
       amazonLink: "https://www.amazon.com/You-Are-Not-Only-One/dp/1304017710",
     },
     {
-      title: "Judy Book 3",
-      price: "$15",
+      title: "Reggie The Redbird & Talking Subway car",
+      author: "Daniel A Alston",
       image: "/images/judy-book3.jpg",
       imageWidth: 200,
       imageHeight: 300,
@@ -220,13 +220,13 @@ const Bestsellers = () => {
         >
           <div className="text-center sm:text-left">
             <motion.h2 
-              className="font-['Lora'] font-semibold text-3xl sm:text-4xl lg:text-5xl text-gray-800 mb-2 sm:mb-3"
+              className="font-['Poppins'] font-semibold text-3xl sm:text-4xl lg:text-5xl text-gray-800 mb-2 sm:mb-3"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              Bestsellers
+              Recently Published
             </motion.h2>
             <motion.p 
               className="font-['Poppins'] text-sm sm:text-base text-gray-500"
@@ -263,7 +263,10 @@ const Bestsellers = () => {
           {books.map((book, index) => (
             <motion.div 
               key={index} 
-              className="relative bg-[#FFFBEB] rounded-2xl p-4 sm:p-6 pb-20 sm:pb-24 w-full max-w-[360px] hover-lift smooth-transition"
+              className="relative rounded-2xl p-4 sm:p-6 pb-20 sm:pb-24 w-full max-w-[360px] hover-lift smooth-transition"
+              style={{
+                background: 'radial-gradient(ellipse at bottom right, rgba(255, 190, 2, 0.25) 0%, rgba(255, 190, 2, 0) 70%), linear-gradient(to bottom, #FDFDFD, #F5F6FF)'
+              }}
               initial={{ opacity: 0, y: 30, scale: 0.95 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true }}
@@ -299,7 +302,7 @@ const Bestsellers = () => {
               >
                 {/* Title */}
                 <motion.h3 
-                  className="font-['Lora'] font-semibold text-lg sm:text-xl leading-tight text-gray-800 whitespace-pre-line mb-3 sm:mb-4"
+                  className="font-['Poppins'] font-semibold text-lg sm:text-xl leading-tight text-gray-800 whitespace-pre-line mb-2"
                   initial={{ opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -308,17 +311,34 @@ const Bestsellers = () => {
                   {book.title}
                 </motion.h3>
                 
-                {/* Price */}
-                <motion.span 
-                  className="font-['Lora'] font-bold text-3xl sm:text-4xl text-gray-800"
+                {/* Author */}
+                <motion.p 
+                  className="font-['Poppins'] text-sm text-gray-600 mb-3 sm:mb-4"
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.6 + index * 0.2 }}
+                >
+                  by {book.author}
+                </motion.p>
+                
+                {/* 5 Star Rating */}
+                <motion.div 
+                  className="flex justify-start"
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: 0.6 + index * 0.2 }}
-                  whileHover={{ scale: 1.1 }}
+                  whileHover={{ scale: 1.05 }}
                 >
-                  {book.price}
-                </motion.span>
+                  <div className="flex items-center space-x-0.5">
+                    <span className="text-yellow-500 text-xl font-light">★</span>
+                    <span className="text-yellow-500 text-xl font-light">★</span>
+                    <span className="text-yellow-500 text-xl font-light">★</span>
+                    <span className="text-yellow-500 text-xl font-light">★</span>
+                    <span className="text-yellow-500 text-xl font-light">★</span>
+                  </div>
+                </motion.div>
               </motion.div>
               
               {/* Buy Now button - Repositioned and elongated */}

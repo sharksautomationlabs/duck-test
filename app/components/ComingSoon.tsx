@@ -90,13 +90,13 @@ const ComingSoon = () => {
         ref={sectionRef}
         className="relative rounded-[20px] sm:rounded-[30px] lg:rounded-[40px] my-12 sm:my-16 lg:my-20 p-4 sm:p-6 lg:p-8"
         style={{
-          background: 'radial-gradient(ellipse at bottom left, rgba(255, 224, 51, 0.15) 0%, rgba(255, 224, 51, 0) 70%), linear-gradient(to right, #F8F9FA, #F3F4FF)'
+          background: 'radial-gradient(ellipse at bottom left, rgba(255, 190, 2, 0.15) 0%, rgba(255, 190, 2, 0) 70%), linear-gradient(to right, #F8F9FA, #F3F4FF)'
         }}
       >
         <div className="grid grid-cols-1 lg:grid-cols-5 items-center gap-6 lg:gap-4">
           {/* Left Column: Text Content - Shifted right with padding */}
           <div className="text-center lg:text-left space-y-3 lg:col-span-1 lg:pl-8">
-            <h2 className="font-['Lora'] font-medium text-3xl sm:text-4xl lg:text-5xl leading-tight text-gray-800">
+            <h2 className="font-['Poppins'] font-bold text-3xl sm:text-4xl lg:text-5xl leading-tight text-gray-800">
               Coming
               <br />
               <span className="font-bold text-red-500">Soon</span>
@@ -109,7 +109,17 @@ const ComingSoon = () => {
           {/* Center Column: Book and Mascot */}
           <div className="relative flex justify-center items-center lg:col-span-3">
             {/* Main Book Image Placeholder */}
-            <div className="w-[250px] h-[250px] sm:w-[350px] sm:h-[350px] lg:w-[450px] lg:h-[450px]">
+            <motion.div 
+              className="w-[250px] h-[250px] sm:w-[350px] sm:h-[350px] lg:w-[450px] lg:h-[450px]"
+              animate={{ 
+                y: [-10, 10, -10]
+              }}
+              transition={{ 
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            >
               <Image
                 src="/images/coming-soon-book.png" // << REPLACE THIS IMAGE PATH
                 alt="Flight Path book cover"
@@ -117,7 +127,7 @@ const ComingSoon = () => {
                 height={450}
                 className="object-contain"
               />
-            </div>
+            </motion.div>
             {/* Duck Mascot with quiver and sparkles */}
             {/* <motion.div 
               className="absolute -bottom-5 left-60 z-10 w-32 h-40"

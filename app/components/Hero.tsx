@@ -95,7 +95,7 @@ const BookCarousel = ({ books, animationDuration = 5000 }: { books: BookCover[],
         return (
           <motion.div 
             key={`placeholder-${placeholderIndex}`} 
-            className={`${books[placeholderIndex].containerClassName} bg-white rounded-lg shadow-lg p-1 sm:p-2 overflow-hidden ${placeholderIndex >= 3 ? 'hidden lg:block' : ''}`}
+            className={`${books[placeholderIndex].containerClassName} overflow-hidden ${placeholderIndex >= 3 ? 'hidden lg:block' : ''}`}
             custom={-1} // Direction: -1 means moving left
             variants={bookVariants}
             initial="enter"
@@ -116,7 +116,7 @@ const BookCarousel = ({ books, animationDuration = 5000 }: { books: BookCover[],
                 alt={book.alt}
                 width={book.width}
                 height={book.height}
-                className={book.className}
+                className="w-full h-full object-contain"
                 priority={placeholderIndex < 2} // Prioritize loading for first two books
               />
             </motion.div>
@@ -128,46 +128,83 @@ const BookCarousel = ({ books, animationDuration = 5000 }: { books: BookCover[],
 };
 
 const Hero = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isVideoInView, setIsVideoInView] = useState(false);
+
+  // Intersection Observer for video lazy loading
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVideoInView(true);
+            if (videoRef.current) {
+              videoRef.current.play();
+            }
+          } else {
+            if (videoRef.current) {
+              videoRef.current.pause();
+            }
+          }
+        });
+      },
+      {
+        threshold: 0.1, // Trigger when 10% of the video is visible
+        rootMargin: '50px' // Start loading 50px before the video comes into view
+      }
+    );
+
+    if (videoRef.current) {
+      observer.observe(videoRef.current);
+    }
+
+    return () => {
+      if (videoRef.current) {
+        observer.unobserve(videoRef.current);
+      }
+    };
+  }, []);
+
   // Book covers data
   const bookCovers: BookCover[] = [
     {
-      src: "/images/book-1.png",
-      alt: "Book Cover 1",
+      src: "/images/selfhelp/book1.jpg",
+      alt: "Couples Therapy Workbook",
       width: 144,
       height: 208,
-      className: "w-full h-full object-cover rounded",
+      className: "w-full h-full object-cover",
       containerClassName: "w-20 h-32 sm:w-28 sm:h-40 lg:w-20 lg:h-32 xl:w-24 xl:h-36"
     },
     {
-      src: "/images/book-2.png",
-      alt: "Book Cover 2",
+      src: "/images/health books/book2.jpg",
+      alt: "Healthy Living Guide",
       width: 160,
       height: 224,
-      className: "w-full h-full object-cover rounded",
+      className: "w-full h-full object-cover",
       containerClassName: "w-36 h-52 sm:w-40 sm:h-56 lg:w-36 lg:h-48 xl:w-40 xl:h-52"
     },
     {
-      src: "/images/book-3.png",
-      alt: "Book Cover 3",
+      src: "/images/health books/book3.jpg",
+      alt: "Nutrition Essentials",
       width: 192,
       height: 288,
-      className: "w-full h-full object-cover rounded",
+      className: "w-full h-full object-cover",
       containerClassName: "w-20 h-32 sm:w-28 sm:h-40 lg:w-56 lg:h-72 xl:w-64 xl:h-88"
     },
     {
-      src: "/images/book-4.png",
-      alt: "Book Cover 4",
+      src: "/images/health books/book4.jpg",
+      alt: "Mental Wellness",
       width: 160,
       height: 224,
-      className: "w-full h-full object-cover rounded",
+      className: "w-full h-full object-cover",
       containerClassName: "w-24 h-36 sm:w-32 sm:h-44 lg:w-36 lg:h-48 xl:w-40 xl:h-52"
     },
     {
-      src: "/images/book-1.png",
-      alt: "Book Cover 5",
+      src: "/images/selfhelp/book4.jpg",
+      alt: "Self-Help Book 4",
       width: 144,
       height: 208,
-      className: "w-full h-full object-cover rounded",
+      className: "w-full h-full object-cover",
       containerClassName: "w-20 h-32 sm:w-28 sm:h-40 lg:w-20 lg:h-32 xl:w-24 xl:h-36"
     }
   ];
@@ -178,12 +215,13 @@ const Hero = () => {
       {/* Background Image and Overlay */}
       <div className="absolute inset-0 z-0">
         <video
+          ref={videoRef}
           className="object-cover w-full h-full"
-          autoPlay
           loop
           muted
           playsInline
           poster="/images/ducks-poster.jpg"
+          preload="metadata"
         >
           <source src="/images/ducks.mp4" type="video/mp4" />
           Your browser does not support the video tag.
@@ -200,22 +238,21 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.5 }}
         >
           <motion.h1 
-            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium leading-tight tracking-wide mb-4 sm:mb-6"
+            className="font-['Poppins'] text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-none tracking-tight mb-4 sm:mb-6"
             initial={{ opacity: 0, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
           >
-            Your Story Deserves to Make a Splash
+            Your <span className="text-yellow-400">Story</span> Deserves<br />
+            to Make a <span className="text-yellow-400">Splash</span>
           </motion.h1>
           <motion.p 
-            className="text-sm sm:text-base md:text-lg text-white/90 mb-6 sm:mb-8 px-4 sm:px-0"
+            className="font-['Poppins'] text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 mb-6 sm:mb-8 px-4 sm:px-0 font-medium leading-relaxed max-w-lg"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.9 }}
           >
-            At Duck Book Writers, we turn manuscripts into published works that waddle confidently
-            into the world. From editing to distribution, we handle the heavy lifting
-            so you can focus on writing.
+            We transform your manuscript into a published masterpiece that makes waves in the literary world.
           </motion.p>
         </motion.div>
 

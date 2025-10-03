@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../components/Header';
-import BookCategories from '../components/BookCategories';
+import BookCategoriesPage from '../components/BookCategoriesPage';
 import AwardWinners from '../components/AwardWinners';
 import ComingSoon from '../components/ComingSoon';
 import Footer from '../components/Footer';
@@ -10,7 +10,7 @@ export default function BooksPage() {
     <div className="min-h-screen bg-white">
       <Header />
       <main>
-        <BookCategories />
+        <BookCategoriesPage />
         <ComingSoon />
         <AwardWinners />
       </main>

@@ -172,7 +172,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 **Duck Book Writers**
 - Phone: +1 (469) 452-7618
 - Email: Contact@duckbookwriters.com
-- Address: 2703 Montrose Blvd, Houston, TX 77006, United States
+- Address: 22023 Rustic Canyon Ln, Richmond, TX 77469, USA
 
 ## 🙏 Acknowledgments
 

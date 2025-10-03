@@ -3,13 +3,7 @@
 import Script from 'next/script';
 
 const FacebookPixel = () => {
-  const pixelId = process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID;
-  
-  // Don't render if pixel ID is not configured
-  if (!pixelId) {
-    console.warn('Facebook Pixel ID not configured. Please set NEXT_PUBLIC_FACEBOOK_PIXEL_ID in your environment variables.');
-    return null;
-  }
+  const pixelId = '1129105702648002';
 
   return (
     <>
@@ -33,6 +27,7 @@ const FacebookPixel = () => {
         }}
       />
       <noscript>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           height="1"
           width="1"

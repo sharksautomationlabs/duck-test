@@ -1,13 +1,13 @@
 "use client"
 import Image from 'next/image';
 import Link from 'next/link';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, Phone, Mail, MapPin } from 'lucide-react';
 import React, { useState } from 'react';
 import emailjs from '@emailjs/browser';
 
 // Define interfaces for the data structures
 interface ContactInfo {
-  icon: string;
+  icon: React.ComponentType<{ className?: string }>;
   text: string;
 }
 
@@ -22,14 +22,14 @@ const Footer: React.FC = () => {
     name: '',
     email: '',
     contact: '',
-    subject: '',
-    description: ''
+    project: '',
+    budget: ''
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -43,15 +43,12 @@ const Footer: React.FC = () => {
     setSubmitStatus('idle');
 
     try {
-      // EmailJS configuration - get these from your EmailJS dashboard
-      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID';
-      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 'YOUR_TEMPLATE_ID';
-      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY';
+      // EmailJS configuration
+      const serviceId = 'service_ms74fti';
+      const templateId = 'template_kagzkck';
+      const publicKey = 'nRYR8C_VGeFw1myb9';
 
-      // Check if credentials are properly set
-      if (serviceId === 'YOUR_SERVICE_ID' || templateId === 'YOUR_TEMPLATE_ID' || publicKey === 'YOUR_PUBLIC_KEY') {
-        throw new Error('EmailJS credentials not configured. Please check your .env.local file.');
-      }
+      // EmailJS is now configured and ready to use
 
       // Send email using EmailJS
       const result = await emailjs.send(
@@ -62,8 +59,8 @@ const Footer: React.FC = () => {
           from_name: formData.name,
           from_email: formData.email,
           contact_number: formData.contact,
-          subject: formData.subject,
-          message: formData.description || 'No description provided',
+          project: formData.project,
+          budget: formData.budget || 'No budget specified',
         },
         publicKey
       );
@@ -78,8 +75,8 @@ const Footer: React.FC = () => {
           name: '',
           email: '',
           contact: '',
-          subject: '',
-          description: ''
+          project: '',
+          budget: ''
         });
         setSubmitStatus('idle');
       }, 3000);
@@ -93,9 +90,9 @@ const Footer: React.FC = () => {
   };
 
   const contactInfo: ContactInfo[] = [
-    { icon: "/images/phone-icon.svg", text: "+1 (469) 452-7618" },
-    { icon: "/images/email-icon.svg", text: "Contact@duckbookwriters.com" },
-    { icon: "/images/location-icon.svg", text: "2703 Montrose Blvd, Houston,\nTX 77006, United States" },
+    { icon: Phone, text: "+1 (469) 452-7618" },
+    { icon: Mail, text: "Contact@duckbookwriters.com" },
+    { icon: MapPin, text: "22023 Rustic Canyon Ln, Richmond,\nTX 77469, USA" },
   ];
 
   const socialLinks: SocialLink[] = [
@@ -112,38 +109,75 @@ const Footer: React.FC = () => {
           
           {/* DIV 1: Main Content (Logo, Details, Nav) */}
           <div className="relative bg-[#F8F9FA] rounded-[20px] sm:rounded-[30px] lg:rounded-[40px] z-10">
-            {/* Central Logo */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 flex flex-col items-center gap-2">
-              <div className="flex items-center justify-center">
-                <Image src="/images/footer-logo.png" alt="Duck Mascot" width={200} height={200} className="w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 xl:w-[200px] xl:h-[200px] object-contain" />
-              </div>
-            </div>
 
             <div className="pt-12 sm:pt-16 lg:pt-20 pb-4 sm:pb-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 items-start gap-6 sm:gap-8 px-4 sm:px-8 lg:px-24">
-                {/* Left Column */}
-                <div className="space-y-3 sm:space-y-4 sm:col-span-2 lg:col-span-1 text-center sm:text-left">
+              <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-6 sm:gap-8 px-4 sm:px-8 lg:px-24">
+                {/* Left Column - Logo and Contact Info */}
+                <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
+                  {/* Logo */}
+                  <div className="mb-6 sm:mb-8">
+                    <Image
+                      src="/images/duck-logo-final.png"
+                      alt="Duck Book Writers Logo"
+                      width={200}
+                      height={80}
+                      className="w-40 sm:w-48 lg:w-52 h-auto"
+                    />
+            </div>
+
+                  {/* Contact Info */}
+                  <div className="space-y-4 sm:space-y-5 w-full">
                   {contactInfo.map((item, index) => (
-                    <div key={index} className="flex items-start gap-3 justify-center sm:justify-start">
-                      <Image src={item.icon} alt="" width={16} height={16} className="mt-1 icon-yellow flex-shrink-0" />
+                      <div key={index} className="flex items-start gap-4 justify-center lg:justify-start">
+                        <item.icon className="mt-1 flex-shrink-0 w-6 h-6 text-yellow-500" />
                       {index === 0 ? (
-                        <a href="tel:+14694527618" className="font-['Poppins'] text-xs sm:text-sm text-gray-600 hover:text-yellow-500 transition-colors duration-200">
+                            <a href="tel:+14694527618" className="font-['Poppins'] text-sm sm:text-base text-gray-600 hover:text-yellow-500 transition-colors duration-200 text-center lg:text-left">
                           {item.text}
                         </a>
                       ) : index === 1 ? (
-                        <a href="mailto:Contact@duckbookwriters.com" className="font-['Poppins'] text-xs sm:text-sm text-gray-600 hover:text-yellow-500 transition-colors duration-200">
+                          <a href="mailto:Contact@duckbookwriters.com" className="font-['Poppins'] text-sm sm:text-base text-gray-600 hover:text-yellow-500 transition-colors duration-200 text-center lg:text-left">
                           {item.text}
                         </a>
                       ) : (
-                        <p className="font-['Poppins'] text-xs sm:text-sm text-gray-600 whitespace-pre-line">{item.text}</p>
+                          <p className="font-['Poppins'] text-sm sm:text-base text-gray-600 whitespace-pre-line text-center lg:text-left">{item.text}</p>
                       )}
                     </div>
                   ))}
                 </div>
 
-                {/* Middle Column - Contact Form */}
-                <div className="bg-white rounded-[15px] sm:rounded-[20px] p-4 sm:p-6 lg:p-8 shadow-lg sm:col-span-2 lg:col-span-1">
-                  <h3 className="font-['Lora'] font-semibold text-xl sm:text-2xl text-[#1A1A1A] mb-4 sm:mb-6">
+                  {/* Social Media Links */}
+                  <div className="mt-6 sm:mt-8 w-full">
+                    <h4 className="font-['Poppins'] font-semibold text-sm sm:text-base text-gray-700 mb-3 sm:mb-4 text-center lg:text-left">
+                      Follow Us
+                    </h4>
+                    <div className="flex items-start gap-4 w-full justify-center lg:justify-start">
+                      <div className="flex gap-3 mt-1">
+                        {socialLinks.map((link, index) => (
+                          <a
+                            key={index}
+                            href={link.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-yellow-100 transition-colors duration-200"
+                          >
+                            <Image
+                              src={link.icon}
+                              alt={link.alt}
+                              width={20}
+                              height={20}
+                              className={`w-4 h-4 sm:w-5 sm:h-5 ${link.alt === 'Facebook' ? 'object-contain' : ''}`}
+                              style={link.alt === 'Facebook' ? { objectFit: 'contain' } : {}}
+                            />
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right Column - Contact Form */}
+                <div className="bg-white rounded-[15px] sm:rounded-[20px] p-4 sm:p-6 lg:p-8 shadow-lg">
+                  <h3 className="font-['Poppins'] font-bold text-xl sm:text-2xl text-[#1A1A1A] mb-4 sm:mb-6">
                     Let&apos;s Talk About Your Book
                   </h3>
 
@@ -199,37 +233,67 @@ const Footer: React.FC = () => {
                       />
                     </div>
 
-                    {/* Subject Field */}
-                    <div>
-                      <label htmlFor="subject" className="block font-['Poppins'] font-medium text-xs sm:text-sm text-[#1A1A1A] mb-1">
-                        Subject *
+                    {/* Project/Services Field */}
+                    <div className="relative">
+                      <label htmlFor="project" className="block font-['Poppins'] font-medium text-xs sm:text-sm text-[#1A1A1A] mb-1">
+                        Project/Services *
                       </label>
-                      <input
-                        type="text"
-                        id="subject"
-                        name="subject"
-                        value={formData.subject}
+                      <select
+                        id="project"
+                        name="project"
+                        value={formData.project}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-3 py-2 border border-gray-300 rounded-[8px] font-['Poppins'] text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#ffbe02] focus:border-transparent transition-all duration-200"
-                        placeholder="What's this about?"
-                      />
+                        className="w-full px-3 py-2 border border-gray-300 rounded-[8px] font-['Poppins'] text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#ffbe02] focus:border-transparent transition-all duration-200 appearance-none bg-white"
+                        style={{ 
+                          position: 'relative', 
+                          zIndex: 10,
+                          backgroundImage: 'url("data:image/svg+xml,%3csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'none\' viewBox=\'0 0 20 20\'%3e%3cpath stroke=\'%236b7280\' stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'1.5\' d=\'m6 8 4 4 4-4\'/%3e%3c/svg%3e")',
+                          backgroundPosition: 'right 0.5rem center',
+                          backgroundRepeat: 'no-repeat',
+                          backgroundSize: '1.5em 1.5em',
+                          paddingRight: '2.5rem'
+                        }}
+                      >
+                        <option value="">Select a project/service</option>
+                        <option value="ghost writing">Ghost Writing</option>
+                        <option value="publishing">Publishing</option>
+                        <option value="editing">Editing</option>
+                        <option value="marketing">Marketing</option>
+                        <option value="printing">Printing</option>
+                      </select>
                     </div>
 
-                    {/* Description Field */}
-                    <div>
-                      <label htmlFor="description" className="block font-['Poppins'] font-medium text-xs sm:text-sm text-[#1A1A1A] mb-1">
-                        Brief Description (Optional)
+                    {/* Budget Field */}
+                    <div className="relative">
+                      <label htmlFor="budget" className="block font-['Poppins'] font-medium text-xs sm:text-sm text-[#1A1A1A] mb-1">
+                        Budget (Optional)
                       </label>
-                      <textarea
-                        id="description"
-                        name="description"
-                        value={formData.description}
+                      <select
+                        id="budget"
+                        name="budget"
+                        value={formData.budget}
                         onChange={handleInputChange}
-                        rows={3}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-[8px] font-['Poppins'] text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#ffbe02] focus:border-transparent transition-all duration-200 resize-none"
-                        placeholder="Tell us about your book idea..."
-                      />
+                        className="w-full px-3 py-2 border border-gray-300 rounded-[8px] font-['Poppins'] text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#ffbe02] focus:border-transparent transition-all duration-200 appearance-none bg-white"
+                        style={{ 
+                          position: 'relative', 
+                          zIndex: 10,
+                          backgroundImage: 'url("data:image/svg+xml,%3csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'none\' viewBox=\'0 0 20 20\'%3e%3cpath stroke=\'%236b7280\' stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'1.5\' d=\'m6 8 4 4 4-4\'/%3e%3c/svg%3e")',
+                          backgroundPosition: 'right 0.5rem center',
+                          backgroundRepeat: 'no-repeat',
+                          backgroundSize: '1.5em 1.5em',
+                          paddingRight: '2.5rem'
+                        }}
+                      >
+                        <option value="">Select budget range</option>
+                        <option value="Under $500">Under $500</option>
+                        <option value="$500 - $1,000">$500 - $1,000</option>
+                        <option value="$1,000 - $2,500">$1,000 - $2,500</option>
+                        <option value="$2,500 - $5,000">$2,500 - $5,000</option>
+                        <option value="$5,000 - $10,000">$5,000 - $10,000</option>
+                        <option value="Over $10,000">Over $10,000</option>
+                        <option value="Let's discuss">Let&apos;s discuss</option>
+                      </select>
                     </div>
 
                     {/* Submit Button */}
@@ -256,36 +320,34 @@ const Footer: React.FC = () => {
                   </form>
                 </div>
 
-                {/* Right Column */}
-                <div className="flex flex-col items-center sm:items-end gap-3 sm:col-span-2 lg:col-span-1">
-                  <Link href="#" className="flex items-center gap-2 font-['Poppins'] text-xs sm:text-sm text-gray-600 hover:text-yellow-500">
-                    Privacy Policy
-                    <ChevronRight className="text-yellow-500 w-3 h-3 sm:w-4 sm:h-4" />
-                  </Link>
-                  <Link href="#" className="flex items-center gap-2 font-['Poppins'] text-xs sm:text-sm text-gray-600 hover:text-yellow-500">
-                    Terms of Use
-                    <ChevronRight className="text-yellow-500 w-3 h-3 sm:w-4 sm:h-4" />
-                  </Link>
-                  <div className="flex items-center gap-3 sm:gap-4 mt-2 sm:mt-3">
-                    {socialLinks.map((social, index) => (
-                      <Link href={social.href} key={index}>
-                        <Image
-                          src={social.icon}
-                          alt={social.alt}
-                          width={social.alt === 'Facebook' ? 10 : 18}
-                          height={social.alt === 'Facebook' ? 10 : 18}
-                          className="icon-yellow object-contain w-4 h-4 sm:w-5 sm:h-5"
-                        />
-                      </Link>
-                    ))}
-                  </div>
-                </div>
               </div>
 
             </div>
           </div>
 
-          {/* DIV 2: Copyright Bar */}
+          {/* DIV 2: Links and Social Media */}
+          <div className="bg-white rounded-[20px] sm:rounded-[30px] lg:rounded-[40px] mt-4 py-6 sm:py-8 px-4 sm:px-8 lg:px-24">
+            <div className="flex flex-col sm:flex-row justify-center sm:justify-between items-center gap-4 sm:gap-6">
+              {/* Links - centered on mobile, right aligned on desktop */}
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 sm:ml-auto sm:justify-end w-full sm:w-auto text-center sm:text-left">
+                <Link href="#" className="flex items-center gap-2 font-['Poppins'] text-xs sm:text-sm text-gray-600 hover:text-yellow-500 transition-colors duration-200">
+                    Privacy Policy
+                    <ChevronRight className="text-yellow-500 w-3 h-3 sm:w-4 sm:h-4" />
+                  </Link>
+                <Link href="#" className="flex items-center gap-2 font-['Poppins'] text-xs sm:text-sm text-gray-600 hover:text-yellow-500 transition-colors duration-200">
+                  Terms of Service
+                    <ChevronRight className="text-yellow-500 w-3 h-3 sm:w-4 sm:h-4" />
+                  </Link>
+                <Link href="#" className="flex items-center gap-2 font-['Poppins'] text-xs sm:text-sm text-gray-600 hover:text-yellow-500 transition-colors duration-200">
+                  Cookie Policy
+                  <ChevronRight className="text-yellow-500 w-3 h-3 sm:w-4 sm:h-4" />
+                      </Link>
+              </div>
+
+            </div>
+          </div>
+
+          {/* DIV 3: Copyright Bar */}
           <div className="bg-[#ffbe02] rounded-[20px] sm:rounded-[30px] lg:rounded-[40px] mt-2 py-1 text-center">
             <p className="font-['Poppins'] text-[10px] sm:text-xs text-gray-800 font-medium">
               © 2025 Duck Book Writers. All Rights Reserved.
@@ -299,3 +361,5 @@ const Footer: React.FC = () => {
 };
 
 export default Footer;
+
+

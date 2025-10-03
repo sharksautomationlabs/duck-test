@@ -26,11 +26,11 @@ const AboutUs = () => {
   ];
 
   const values = [
-    { title: "Quality Publishing", description: "Every book gets expert editing, design, and production.", bgColor: "bg-[#FFFBEB]" },
+    { title: "Quality Publishing", description: "Every book gets expert editing, design, and production.", bgColor: "gradient", bgStyle: { background: 'radial-gradient(ellipse at bottom right, rgba(255, 190, 2, 0.25) 0%, rgba(255, 190, 2, 0) 70%), linear-gradient(to bottom, #FDFDFD, #F5F6FF)' } },
     { title: "Global Reach", description: "We distribute to readers in every corner of the world.", bgColor: "bg-[#F8F9FA]" },
-    { title: "Author Support", description: "We distribute to readers in every corner of the world.", bgColor: "bg-[#FFFBEB]" },
+    { title: "Author Support", description: "We distribute to readers in every corner of the world.", bgColor: "gradient", bgStyle: { background: 'radial-gradient(ellipse at bottom right, rgba(255, 190, 2, 0.25) 0%, rgba(255, 190, 2, 0) 70%), linear-gradient(to bottom, #FDFDFD, #F5F6FF)' } },
     { title: "Innovation", description: "We use the latest tools and strategies to maximize your reach.", bgColor: "bg-[#F8F9FA]" },
-    { title: "Diversity", description: "We welcome stories from all backgrounds and cultures.", bgColor: "bg-[#FFFBEB]" }
+    { title: "Diversity", description: "We welcome stories from all backgrounds and cultures.", bgColor: "gradient", bgStyle: { background: 'radial-gradient(ellipse at bottom right, rgba(255, 190, 2, 0.25) 0%, rgba(255, 190, 2, 0) 70%), linear-gradient(to bottom, #FDFDFD, #F5F6FF)' } }
   ];
 
   return (
@@ -213,7 +213,7 @@ const AboutUs = () => {
 
           {/* Right side - Content */}
           <div className="space-y-8">
-            <h2 className="font-['Lora'] font-semibold text-5xl text-gray-800">
+            <h2 className="font-['Poppins'] font-bold text-5xl text-gray-800">
               About Us
             </h2>
             {missionVision.map((item, index) => (
@@ -222,7 +222,7 @@ const AboutUs = () => {
                   <Image src={item.icon} alt={`${item.title} icon`} width={64} height={64} />
                 </div>
                 <div>
-                  <h3 className="font-['Lora'] font-semibold text-2xl text-gray-800 mb-2">
+                  <h3 className="font-['Poppins'] font-bold text-2xl text-gray-800 mb-2">
                     {item.title}
                   </h3>
                   <p className="font-['Poppins'] text-base text-gray-600">
@@ -236,12 +236,12 @@ const AboutUs = () => {
 
         {/* Bottom Section: Our Values */}
         <div className="text-center">
-          <h3 className="font-['Lora'] font-semibold text-4xl text-gray-800 mb-12">
+          <h3 className="font-['Poppins'] font-bold text-4xl text-gray-800 mb-12">
             Our Values
           </h3>
           <div className="flex justify-center flex-wrap gap-6">
             {values.map((value, index) => (
-              <div key={index} className={`${value.bgColor} rounded-xl p-6 w-56 h-auto flex flex-col items-center text-center`}>
+              <div key={index} className={`${value.bgColor === 'gradient' ? '' : value.bgColor} rounded-xl p-6 w-56 h-auto flex flex-col items-center text-center`} style={value.bgStyle}>
                 <h4 className="font-['Poppins'] font-bold text-base text-gray-800 mb-2">
                   {value.title}
                 </h4>
