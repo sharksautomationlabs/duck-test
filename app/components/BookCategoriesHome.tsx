@@ -106,6 +106,19 @@ const BookCategoriesHome = () => {
         { title: "Self-Help Book 5", image: "/images/selfhelp/book5.jpg", amazonLink: "https://www.amazon.com/dp/B0F9B36LBD/ref=sspa_dk_detail_6?psc=1&pf_rd_p=7446a9d1-25fe-4460-b135-a60336bad2c9&pf_rd_r=ZM0GGMZJCXAN45R9M8ZT&pd_rd_wg=a7oj9&pd_rd_w=3o79P&content-id=amzn1.sym.7446a9d1-25fe-4460-b135-a60336bad2c9&pd_rd_r=fdf14a9f-7463-4929-8f78-11f19f14eb91&sp_csd=d2lkZ2V0TmFtZT1zcF9kZXRhaWw" },
         { title: "Self-Help Book 6", image: "/images/selfhelp/book6.jpg", amazonLink: "https://www.amazon.com/How-Stop-Being-Narcissist-Relationships/dp/B0BV1F28NB/ref=bmx_dp_d_sccl_2_13/135-9574565-7193540?pd_rd_w=33oJr&content-id=amzn1.sym.43dd9979-c547-4d63-9aca-cb4cebe845a6&pf_rd_p=43dd9979-c547-4d63-9aca-cb4cebe845a6&pf_rd_r=5QH8E308FSR72B5QAGAZ&pd_rd_wg=jqEyp&pd_rd_r=e5b1d350-66a2-4bd8-9128-45372c1b101c&pd_rd_i=B0BV1F28NB&psc=1" }
       ]
+    },
+    {
+      name: "Business &\nMoney",
+      image: "/images/category-business.png",
+      staggered: true,
+      books: [
+        { title: "Business Strategy Guide", image: "/images/business/1.jpg", author: "Dr. Sarah Johnson", amazonLink: "https://www.amazon.com/Your-Business-Could-Worth-More/dp/B0DVRXYDS4/ref=sr_1_1?crid=2CK7C1C8PUKB1&dib=eyJ2IjoiMSJ9.Kmavu-AKthF7olr80xAWQf_byCC0l8XojNAII3BMGkkYd0isxSyzEaBE36pHV7-N3bDLHbogGkvvws5gOpAbfw.FCdcuq2xFqWLfMaoM0PeikNOQA7pe2CpQ3gSMOmxPr8&dib_tag=se&keywords=Your+Business+Could+Be+Worth+More&qid=1759419005&s=books&sprefix=your+business+could+be+worth+more%2Cstripbooks-intl-ship%2C309&sr=1-1" },
+        { title: "Financial Freedom", image: "/images/business/2.jpg", author: "Mike Thompson", amazonLink: "https://www.amazon.com/dp/B0FH7GG4SD/ref=sspa_dk_detail_7?psc=1&pf_rd_p=7446a9d1-25fe-4460-b135-a60336bad2c9&pf_rd_r=ZM0GGMZJCXAN45R9M8ZT&pd_rd_wg=a7oj9&pd_rd_w=3o79P&content-id=amzn1.sym.7446a9d1-25fe-4460-b135-a60336bad2c9&pd_rd_r=fdf14a9f-7463-4929-8f78-11f19f14eb91&sp_csd=d2lkZ2V0TmFtZT1zcF9kZXRhaWw" },
+        { title: "Investment Essentials", image: "/images/business/3.jpg", author: "Dr. Lisa Chen", amazonLink: "https://www.amazon.com/dp/B0DLT9GBLX/ref=sspa_dk_detail_5?psc=1&pf_rd_p=7446a9d1-25fe-4460-b135-a60336bad2c9&pf_rd_r=ZM0GGMZJCXAN45R9M8ZT&pd_rd_wg=a7oj9&pd_rd_w=3o79P&content-id=amzn1.sym.7446a9d1-25fe-4460-b135-a60336bad2c9&pd_rd_r=fdf14a9f-7463-4929-8f78-11f19f14eb91&sp_csd=d2lkZ2V0TmFtZT1zcF9kZXRhaWw" },
+        { title: "Entrepreneurship Guide", image: "/images/business/4.jpg", author: "Dr. James Wilson", amazonLink: "https://www.amazon.com/dp/B0DTT3W4DD/ref=sspa_dk_detail_4?psc=1&pf_rd_p=7446a9d1-25fe-4460-b135-a60336bad2c9&pf_rd_r=T3KTHCZAGA9KJR3P5SFJ&pd_rd_wg=T20Ys&pd_rd_w=ygVOY&content-id=amzn1.sym.7446a9d1-25fe-4460-b135-a60336bad2c9&pd_rd_r=ccefa02f-b1cf-4021-b48e-21ab8ab79082&sp_csd=d2lkZ2V0TmFtZT1zcF9kZXRhaWw" },
+        { title: "Marketing Mastery", image: "/images/business/5.jpg", author: "Sarah Martinez", amazonLink: "https://www.amazon.com/dp/B0C6C15SLR/ref=sspa_dk_detail_5?psc=1&pd_rd_i=B0C6C15SLR&pd_rd_w=ygVOY&content-id=amzn1.sym.7446a9d1-25fe-4460-b135-a60336bad2c9&pf_rd_p=7446a9d1-25fe-4460-b135-a60336bad2c9&pf_rd_r=T3KTHCZAGA9KJR3P5SFJ&pd_rd_wg=T20Ys&pd_rd_r=ccefa02f-b1cf-4021-b48e-21ab8ab79082&sp_csd=d2lkZ2V0TmFtZT1zcF9kZXRhaWw" },
+        { title: "Leadership Excellence", image: "/images/business/6.jpg", author: "Coach David Lee", amazonLink: "https://www.amazon.com/How-Stop-Being-Narcissist-Relationships/dp/B0BV1F28NB/ref=bmx_dp_d_sccl_2_13/135-9574565-7193540?pd_rd_w=33oJr&content-id=amzn1.sym.43dd9979-c547-4d63-9aca-cb4cebe845a6&pf_rd_p=43dd9979-c547-4d63-9aca-cb4cebe845a6&pf_rd_r=5QH8E308FSR72B5QAGAZ&pd_rd_wg=jqEyp&pd_rd_r=e5b1d350-66a2-4bd8-9128-45372c1b101c&pd_rd_i=B0BV1F28NB&psc=1" }
+      ]
     }
   ];
 

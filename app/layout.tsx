@@ -16,7 +16,36 @@ export const metadata: Metadata = {
   description: "Duck Book Writers is a full-service publishing house based in Houston, Texas, serving authors around the globe.",
   keywords: "publishing, books, authors, writing, publishing house, book writers",
   icons: {
-    icon: '/favicon.ico',
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon.ico', sizes: '32x32', type: 'image/x-icon' },
+      { url: '/favicon.ico', sizes: '16x16', type: 'image/x-icon' }
+    ],
+    apple: '/favicon.ico',
+    shortcut: '/favicon.ico'
+  },
+  manifest: '/manifest.json',
+  openGraph: {
+    title: "Duck Book Writers | Publishing House",
+    description: "Duck Book Writers is a full-service publishing house based in Houston, Texas, serving authors around the globe.",
+    type: 'website',
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Duck Book Writers | Publishing House",
+    description: "Duck Book Writers is a full-service publishing house based in Houston, Texas, serving authors around the globe.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 };
 
