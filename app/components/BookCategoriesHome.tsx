@@ -113,11 +113,11 @@ const BookCategoriesHome = () => {
       staggered: true,
       books: [
         { title: "Business Strategy Guide", image: "/images/business/1.jpg", author: "Dr. Sarah Johnson", amazonLink: "https://www.amazon.com/Your-Business-Could-Worth-More/dp/B0DVRXYDS4/ref=sr_1_1?crid=2CK7C1C8PUKB1&dib=eyJ2IjoiMSJ9.Kmavu-AKthF7olr80xAWQf_byCC0l8XojNAII3BMGkkYd0isxSyzEaBE36pHV7-N3bDLHbogGkvvws5gOpAbfw.FCdcuq2xFqWLfMaoM0PeikNOQA7pe2CpQ3gSMOmxPr8&dib_tag=se&keywords=Your+Business+Could+Be+Worth+More&qid=1759419005&s=books&sprefix=your+business+could+be+worth+more%2Cstripbooks-intl-ship%2C309&sr=1-1" },
-        { title: "Financial Freedom", image: "/images/business/2.jpg", author: "Mike Thompson", amazonLink: "https://www.amazon.com/dp/B0FH7GG4SD/ref=sspa_dk_detail_7?psc=1&pf_rd_p=7446a9d1-25fe-4460-b135-a60336bad2c9&pf_rd_r=ZM0GGMZJCXAN45R9M8ZT&pd_rd_wg=a7oj9&pd_rd_w=3o79P&content-id=amzn1.sym.7446a9d1-25fe-4460-b135-a60336bad2c9&pd_rd_r=fdf14a9f-7463-4929-8f78-11f19f14eb91&sp_csd=d2lkZ2V0TmFtZT1zcF9kZXRhaWw" },
-        { title: "Investment Essentials", image: "/images/business/3.jpg", author: "Dr. Lisa Chen", amazonLink: "https://www.amazon.com/dp/B0DLT9GBLX/ref=sspa_dk_detail_5?psc=1&pf_rd_p=7446a9d1-25fe-4460-b135-a60336bad2c9&pf_rd_r=ZM0GGMZJCXAN45R9M8ZT&pd_rd_wg=a7oj9&pd_rd_w=3o79P&content-id=amzn1.sym.7446a9d1-25fe-4460-b135-a60336bad2c9&pd_rd_r=fdf14a9f-7463-4929-8f78-11f19f14eb91&sp_csd=d2lkZ2V0TmFtZT1zcF9kZXRhaWw" },
-        { title: "Entrepreneurship Guide", image: "/images/business/4.jpg", author: "Dr. James Wilson", amazonLink: "https://www.amazon.com/dp/B0DTT3W4DD/ref=sspa_dk_detail_4?psc=1&pf_rd_p=7446a9d1-25fe-4460-b135-a60336bad2c9&pf_rd_r=T3KTHCZAGA9KJR3P5SFJ&pd_rd_wg=T20Ys&pd_rd_w=ygVOY&content-id=amzn1.sym.7446a9d1-25fe-4460-b135-a60336bad2c9&pd_rd_r=ccefa02f-b1cf-4021-b48e-21ab8ab79082&sp_csd=d2lkZ2V0TmFtZT1zcF9kZXRhaWw" },
-        { title: "Marketing Mastery", image: "/images/business/5.jpg", author: "Sarah Martinez", amazonLink: "https://www.amazon.com/dp/B0C6C15SLR/ref=sspa_dk_detail_5?psc=1&pd_rd_i=B0C6C15SLR&pd_rd_w=ygVOY&content-id=amzn1.sym.7446a9d1-25fe-4460-b135-a60336bad2c9&pf_rd_p=7446a9d1-25fe-4460-b135-a60336bad2c9&pf_rd_r=T3KTHCZAGA9KJR3P5SFJ&pd_rd_wg=T20Ys&pd_rd_r=ccefa02f-b1cf-4021-b48e-21ab8ab79082&sp_csd=d2lkZ2V0TmFtZT1zcF9kZXRhaWw" },
-        { title: "Leadership Excellence", image: "/images/business/6.jpg", author: "Coach David Lee", amazonLink: "https://www.amazon.com/How-Stop-Being-Narcissist-Relationships/dp/B0BV1F28NB/ref=bmx_dp_d_sccl_2_13/135-9574565-7193540?pd_rd_w=33oJr&content-id=amzn1.sym.43dd9979-c547-4d63-9aca-cb4cebe845a6&pf_rd_p=43dd9979-c547-4d63-9aca-cb4cebe845a6&pf_rd_r=5QH8E308FSR72B5QAGAZ&pd_rd_wg=jqEyp&pd_rd_r=e5b1d350-66a2-4bd8-9128-45372c1b101c&pd_rd_i=B0BV1F28NB&psc=1" }
+        { title: "Financial Freedom", image: "/images/business/2.jpg", author: "Mike Thompson", amazonLink: "https://www.amazon.com/Future-Work-Business-Enterprises-Certified/dp/B09M57Y8SN/ref=sr_1_1?crid=1IS5BX4D0PT7O&dib=eyJ2IjoiMSJ9.OLyICqqospeUwT1AiM3BqA.7deWBlQuYzu3CsMwHV03fuAT9Cf27pmukHtfq_I7pvE&dib_tag=se&keywords=The+Future+of+Work%3A+Business+Advice+for+Small+and+Medium+Enterprises&qid=1759419182&s=books&sprefix=the+future+of+work+business+advice+for+small+and+medium+enterprises%2Cstripbooks-intl-ship%2C434&sr=1-1#detailBullets_feature_div" },
+        { title: "Investment Essentials", image: "/images/business/3.jpg", author: "Dr. Lisa Chen", amazonLink: "https://www.amazon.com/Bottom-Line-Multiplier-Building-Profitable/dp/B0CY8X74K7/ref=sr_1_1?crid=171LAB17DRXCS&dib=eyJ2IjoiMSJ9.q1ZhcocB9Ff5lYI9L25ZaPzAmnEEfwTwsZKmfGjLfks.sqTJrsO3RC4P6YVmorxcxIKdoPdppQNRpJsbZ_G4twA&dib_tag=se&keywords=The+Bottom+Line+Multiplier&qid=1759418936&s=books&sprefix=how+to+hit+your+business.%2Cstripbooks-intl-ship%2C698&sr=1-1" },
+        { title: "Entrepreneurship Guide", image: "/images/business/4.jpg", author: "Dr. James Wilson", amazonLink: "https://www.amazon.com/Exit-Style-Grace-More-Money-ebook/dp/B0DKCGK3W9/ref=sr_1_1?crid=3F8980URWRQ9Q&dib=eyJ2IjoiMSJ9.FFOQiSomEM6xyzpROU35kv7CIQ_V1MQiYV6UJGsGGyzKP05ISLr8gLIJZiu8Duf1IzWn_w2OzoMEjx3i68MFUw.dKYGg3kx9d8at8j5GP_1e42iKlM5p-FbVjtXmzALdcs&dib_tag=se&keywords=Exit+with+Style%2C+Grace%2C+and+More+Money&qid=1759419060&s=books&sprefix=exit+with+style%2C+grace%2C+and+more+money%2Cstripbooks-intl-ship%2C267&sr=1-1" },
+        { title: "Marketing Mastery", image: "/images/business/5.jpg", author: "Sarah Martinez", amazonLink: "https://www.amazon.com/HOW-HIT-YOUR-BUSINESS-business/dp/B0BHS9F1LG/ref=sr_1_3?crid=2B6HR9GMQI9MT&dib=eyJ2IjoiMSJ9.phMnlthm0XpmNgbqiumqs716KVX87Kw4HjvNJHUMuD8TwdoXZOslPRpcr14N5hiJludPPrQ4x5rS7yQYfI4AUi1wUum8vM02v3dmhWHzCYLRXZts75UBgkbmSziS0ER9jMPBMqVuqbk-EF87Q_IS0Xa1ASUnSNsZ7opd4k74-fuwzUZmJYklWbvrT5KzaU8Aii_e-mhdwSERdeloTsVTkPO0X7KHJsEL8vjxuGJb400.ZHR4rUXBVLknIW427wk1H7zA52-jKfu9DdGWEg_YYnQ&dib_tag=se&keywords=HOW+TO+HIT+YOUR+BUSINESS.&qid=1759418858&s=books&sprefix=how+to+hit+your+business.%2Cstripbooks-intl-ship%2C675&sr=1-3#detailBullets_feature_div" },
+        { title: "Leadership Excellence", image: "/images/business/6.jpg", author: "Coach David Lee", amazonLink: "https://www.amazon.com/LITTLE-BOOK-SECRETS-STARTING-BUSINESS-ebook/dp/B0D1HJFRBG/ref=sr_1_1?crid=2II25H0MXNRBY&dib=eyJ2IjoiMSJ9.PEev3QgCCaiqAlyFRQeSwmp9agPz1skuFZRxWLXZEBIyG_cIVefWGtlYa6Eb5CdbcOqG_cGld0tax2YXi6c2VZ9IMeTB_TfCzXC6br3WaPS7ZdYG3vS353VyR2fDNQX2bZxdG1Z0V5Chww2llPzo0A6SaJ2kDPiC42Mx6zJ5OuIS4Qm_9t8O6ulR4J4MV6LyCxrpE8oGDAs_QWbMEM037kexvEY9U4GksqK1NmebJJU.xSbYMRCxb07p_n-WEbgxaI6wgVQRxTAqVpEllBGDO58&dib_tag=se&keywords=THE+LITTLE+BOOK+OF+SECRETS+TO+STARTING+YOUR+OWN+BUSINESS&qid=1759419325&s=books&sprefix=the+little+book+of+secrets+to+starting+your+own+business%2Cstripbooks-intl-ship%2C262&sr=1-1#detailBullets_feature_div" }
       ]
     }
   ];
@@ -167,12 +167,12 @@ const BookCategoriesHome = () => {
         </motion.div>
         
         {/* Category Headers */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 mb-8 sm:mb-12">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 mb-8 sm:mb-12">
           <div className="relative">
             {/* Continuous underline */}
             <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gray-300"></div>
             
-            <div className="flex flex-nowrap justify-center gap-6 sm:gap-8 lg:gap-12 overflow-x-auto pb-4 hide-scrollbar">
+            <div className="flex flex-nowrap justify-center gap-4 sm:gap-6 lg:gap-8 overflow-x-auto pb-4 hide-scrollbar px-2">
               {categories.map((category, index) => (
                 <motion.button
                   key={index}
@@ -189,7 +189,7 @@ const BookCategoriesHome = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <span className="font-['Poppins'] font-semibold text-sm sm:text-base lg:text-lg tracking-wide mb-2">
+                  <span className="font-['Poppins'] font-semibold text-sm sm:text-base lg:text-lg tracking-wide mb-2 px-2 text-center leading-tight">
                     {category.name.replace("\n", " ")}
                   </span>
                   {/* Active category highlight */}
@@ -205,7 +205,7 @@ const BookCategoriesHome = () => {
         </div>
 
         {/* Books Display */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <motion.div
             key={activeCategory}
             initial={{ opacity: 0, y: 20 }}
