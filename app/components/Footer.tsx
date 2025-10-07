@@ -260,6 +260,7 @@ const Footer: React.FC = () => {
                         <option value="publishing">Publishing</option>
                         <option value="editing">Editing</option>
                         <option value="marketing">Marketing</option>
+                        <option value="distribution">Distribution</option>
                         <option value="printing">Printing</option>
                       </select>
                     </div>

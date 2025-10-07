@@ -56,7 +56,7 @@ const BookCategoriesHome = () => {
       ]
     },
     {
-      name: "Science &\nFiction",
+      name: "Science Fiction\nand Fantasy",
       image: "/images/category-scifi.png",
       staggered: true,
       books: [
