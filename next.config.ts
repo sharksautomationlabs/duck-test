@@ -12,12 +12,6 @@ const nextConfig: NextConfig = {
   httpAgentOptions: {
     keepAlive: true,
   },
-  // Vercel-specific optimizations
-  experimental: {
-    optimizePackageImports: ['framer-motion', 'lucide-react'],
-  },
-  // Ensure proper output for Vercel
-  output: 'standalone',
 };
 
 export default nextConfig;
